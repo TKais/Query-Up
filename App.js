@@ -1,32 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { Text, View, StatusBar } from 'react-native';
 import { Constants } from 'expo';
+import styled from 'styled-components';
 import DeckList from './components/DeckList';
 
 export default class App extends React.Component {
-  generateStatusBar() {
-    return (
-      <StatusBar barStyle = "dark-content" hidden = {false}/>
-    )
-  }
-
   render() {
     return (
-      <View style={styles.container}>
-        { this.generateStatusBar() }
-        <Text>This is working!</Text>
+      <StyledView>
+          <StatusView>
+            <StatusBar translucent barStyle='light-content'/>
+          </StatusView>
         <DeckList />
-      </View>
+      </StyledView>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const StyledView = styled.View`
+  backgroundColor: #FFF;
+  flex: 1;
+`
+
+const StatusView = styled.View`
+  backgroundColor: blue;
+  height: ${ props => props.statusBar.statusBarHeight }
+`
+
+StatusView.defaultProps = {
+  statusBar: {
+    statusBarHeight: Constants.statusBarHeight
+  }
+}
