@@ -1,15 +1,15 @@
 import React from 'react';
 import { Text, View, StatusBar } from 'react-native';
-import { Constants } from 'expo';
-import styled from 'styled-components';
 import DeckList from './components/DeckList';
+import { StyledView, StatusView, StatusText } from './assets/styles/App';
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <StyledView>
           <StatusView>
-            <StatusBar translucent barStyle='light-content'/>
+            <StatusBar barStyle="light-content"/>
+            <StatusText>Decks</StatusText>
           </StatusView>
         <DeckList />
       </StyledView>
@@ -17,18 +17,4 @@ export default class App extends React.Component {
   }
 }
 
-const StyledView = styled.View`
-  backgroundColor: #FFF;
-  flex: 1;
-`
-
-const StatusView = styled.View`
-  backgroundColor: blue;
-  height: ${ props => props.statusBar.statusBarHeight }
-`
-
-StatusView.defaultProps = {
-  statusBar: {
-    statusBarHeight: Constants.statusBarHeight
-  }
-}
+export default App;
