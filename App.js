@@ -1,6 +1,9 @@
 import React from 'react';
 import { Text, View, Platform } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducers';
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import DeckList from './components/DeckList';
 import NewDeck from './components/NewDeck';
@@ -51,10 +54,12 @@ const MainNavigator = createStackNavigator({
 class App extends React.Component {
   render() {
     return (
-      <StyledView>
-        <Header headerText="Decks" />
-        <MainNavigator />
-      </StyledView>
+      <Provider store={ createStore(reducer) }>
+        <StyledView>
+          <Header headerText="Decks" />
+          <MainNavigator />
+        </StyledView>
+      </Provider>
     );
   }
 }
