@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View, StatusBar, Platform, Dimensions } from 'react-native';
+import { Text, View, Platform } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import DeckList from './components/DeckList';
 import NewDeck from './components/NewDeck';
-import { StyledView, StatusView, StatusText } from './assets/styles/App';
+import Header from './components/Header';
+import { StyledView } from './assets/styles/app-styles';
 
 const Tabs = createBottomTabNavigator(
   {
@@ -51,10 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <StyledView>
-        <StatusView>
-          <StatusBar barStyle="light-content"/>
-          <StatusText>Decks</StatusText>
-        </StatusView>
+        <Header headerText="Decks" />
         <MainNavigator />
       </StyledView>
     );
