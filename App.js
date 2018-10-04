@@ -31,7 +31,6 @@ const Tabs = createBottomTabNavigator(
       style: {
         height: 70,
         backgroundColor: '#71C9C8',
-
       },
       labelStyle: {
         paddingBottom: 10,
@@ -43,7 +42,9 @@ const Tabs = createBottomTabNavigator(
 const MainNavigator = createStackNavigator({
   Home: {
     screen: Tabs,
-  },
+  }
+}, {
+  headerMode: 'none'
 });
 
 class App extends React.Component {
