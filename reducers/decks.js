@@ -8,10 +8,13 @@ export function decks( state = {}, action ) {
 		    	...action.decks,
 		    }
 		case CREATE_DECK:
-		console.log('ACTION--->', action.name);
+		console.log('ACTION--->', action.deckName);
 		    return {
 		    	...state,
-		    	...action.deckName
+		    	[action.deckName]: {
+		    		title: action.deckName,
+		    		questions: [],
+		    	}
 		    }
 		default:
 		    return state;
