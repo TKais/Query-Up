@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { StyledView } from '../assets/styles/decklist-styles';
 import Deck from './Deck';
@@ -7,9 +7,14 @@ import Deck from './Deck';
 class DeckList extends React.Component {
 
 	generateDeckList = () => {
-		this.props.decks.map( ( deck ) => (
-			<Deck name={deck.name} />
-		));
+		const deckNames = Object.keys( this.props.decks );
+
+		return (
+			<FlatList
+				data={ [ this.props.decks ] }
+				renderItem={ ({ item, index }) => <Deck key={item[deckNames[index]].title} title={item[deckNames[index]].title} /> }
+			/>
+		);
 	}
 
 	generateErrorMessage = () => {
@@ -24,7 +29,7 @@ class DeckList extends React.Component {
 		return (
 			<StyledView>
 			    <Text>DeckList View</Text>
-			    { this.props.decks.length > 0 ? this.generateDeckList() : this.generateErrorMessage() }
+			    { Object.keys(this.props.decks).length > 0 ? this.generateDeckList() : this.generateErrorMessage() }
 			</StyledView>
 		);
 	}
