@@ -6,16 +6,15 @@ import { createDeck } from '../actions/decks';
 
 class NewDeck extends React.Component {
 	constructor(props) {
-    super(props);
-    this.state = {
-    	textValue: ''
-    };
-  }
+	    super(props);
+	    this.state = {
+	    	textValue: ''
+	    };
+	}
 
-	handleChange = ( value ) => {
-		console.log(value)
+	handleChange = ( val ) => {
 		this.setState({
-			textValue: value
+			textValue: val
 		});
 	}
 
