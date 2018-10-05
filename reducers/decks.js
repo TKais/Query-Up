@@ -1,4 +1,4 @@
-import { GET_DECKS } from '../actions/decks';
+import { GET_DECKS, CREATE_DECK } from '../actions/decks';
 
 export function decks( state = {}, action ) {
 	switch( action.type ) {
@@ -6,6 +6,12 @@ export function decks( state = {}, action ) {
 		    return {
 		    	...state,
 		    	...action.decks,
+		    }
+		case CREATE_DECK:
+		console.log('ACTION--->', action.name);
+		    return {
+		    	...state,
+		    	...action.deckName
 		    }
 		default:
 		    return state;
