@@ -8,23 +8,27 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import DeckList from './components/DeckList';
 import NewDeck from './components/NewDeck';
 import Header from './components/Header';
+import Deck from './components/Deck';
+import Quiz from './components/Quiz';
 import { StyledView } from './assets/styles/app-styles';
 
 const Tabs = createBottomTabNavigator(
   {
     Decks: DeckList,
-    New: NewDeck,
+    ['New Deck']: NewDeck,
   },
   {
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
+        let routeIcon;
 
-        return routeName === 'Decks' ? (
-          <Ionicons name="ios-albums" size={30} color={tintColor} />
-        ) : (
-          <FontAwesome name="plus-square" size={30} color={tintColor} />
-        );
+        if( routeName === 'Decks' ) {
+          routeIcon = <Ionicons name="ios-albums" size={30} color={tintColor} />;
+        } else if ( routeName === 'New Deck' ) {
+          routeIcon = <FontAwesome name="plus-square" size={30} color={tintColor} />;
+        }
+        return routeIcon;
       },
     }),
     tabBarOptions: {
@@ -46,12 +50,16 @@ const Tabs = createBottomTabNavigator(
 const MainNavigator = createStackNavigator({
   Home: {
     screen: Tabs,
-  }
+  },
 }, {
   headerMode: 'none'
 });
 
 class App extends React.Component {
+  state = {
+    headerName: ''
+  }
+
   render() {
     return (
       <Provider store={ createStore(reducer) }>
