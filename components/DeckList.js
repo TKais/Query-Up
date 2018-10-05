@@ -5,11 +5,26 @@ import { StyledView } from '../assets/styles/decklist-styles';
 import Deck from './Deck';
 
 class DeckList extends React.Component {
+
+	generateDeckList = () => {
+		this.props.decks.map( ( deck ) => (
+			<Deck name={deck.name} />
+		));
+	}
+
+	generateErrorMessage = () => {
+		return (
+			<Text>
+			    You haven't created any decks yet.
+			</Text>
+		)
+	}
+
 	render() {
 		return (
 			<StyledView>
 			    <Text>DeckList View</Text>
-			    <Deck />
+			    { this.props.decks.length > 0 ? this.generateDeckList() : this.generateErrorMessage() }
 			</StyledView>
 		);
 	}
