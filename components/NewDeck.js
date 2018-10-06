@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Keyboard } from 'react-native';
 import { connect } from 'react-redux';
 import { StyledView, StyledInput, StyledButton, ButtonText } from '../assets/styles/new-deck';
 import { createDeck } from '../actions/decks';
@@ -21,6 +21,7 @@ class NewDeck extends React.Component {
 
 	handlePress = () => {
 		this.props.dispatch( createDeck(this.state.textValue) );
+		Keyboard.dismiss();
 		this.setState({
 			textValue: ''
 		});
