@@ -15,6 +15,7 @@ class DeckList extends React.Component {
 				data={ deckArray }
 				renderItem={ ({ item, index }) => <Deck title={item.title} /> }
 				showsVerticalScrollIndicator={false}
+				keyExtractor={ item => item.title }
 			/>
 		);
 	}
