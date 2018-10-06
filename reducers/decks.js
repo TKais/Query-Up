@@ -8,7 +8,6 @@ export function decks( state = {}, action ) {
 		    	...action.decks,
 		    }
 		case CREATE_DECK:
-		console.log('ACTION--->', action.deckName);
 		    return {
 		    	...state,
 		    	[action.deckName]: {
