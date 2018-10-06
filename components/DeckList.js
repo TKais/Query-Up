@@ -8,11 +8,13 @@ class DeckList extends React.Component {
 
 	generateDeckList = () => {
 		const deckNames = Object.keys( this.props.decks );
+		const deckArray = Object.values(this.props.decks);
 
 		return (
 			<FlatList
-				data={ [ this.props.decks ] }
-				renderItem={ ({ item, index }) => <Deck key={item[deckNames[index]].title} title={item[deckNames[index]].title} /> }
+				data={ deckArray }
+				renderItem={ ({ item, index }) => <Deck title={item.title} /> }
+				showsVerticalScrollIndicator={false}
 			/>
 		);
 	}
