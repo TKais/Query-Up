@@ -3,12 +3,14 @@ import { View, Text, Button } from 'react-native';
 
 class Deck extends React.Component {
 	handlePress = () => {
-		// ok
+		// comment
 	}
 	
 	render() {
 		return (
-			<Button title={this.props.title} onPress={ this.handlePress } />
+			<View key={this.props.title}>
+	            <Text>{this.props.title}</Text>
+	        </View>
 		);
 	}
 }
