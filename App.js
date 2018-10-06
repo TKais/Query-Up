@@ -14,7 +14,7 @@ import { StyledView } from './assets/styles/app-styles';
 
 const Tabs = createBottomTabNavigator(
   {
-    Decks: DeckList,
+    DeckList: DeckList,
     ['New Deck']: NewDeck,
   },
   {
@@ -23,7 +23,7 @@ const Tabs = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let routeIcon;
 
-        if( routeName === 'Decks' ) {
+        if( routeName === 'DeckList' ) {
           routeIcon = <Ionicons name="ios-albums" size={30} color={tintColor} />;
         } else if ( routeName === 'New Deck' ) {
           routeIcon = <FontAwesome name="plus-square" size={30} color={tintColor} />;
