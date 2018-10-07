@@ -14,7 +14,7 @@ import { StyledView } from './assets/styles/app-styles';
 
 const Tabs = createBottomTabNavigator(
   {
-    DeckList: DeckList,
+    Decks: DeckList,
     ['New Deck']: NewDeck,
   },
   {
@@ -23,7 +23,7 @@ const Tabs = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let routeIcon;
 
-        if( routeName === 'DeckList' ) {
+        if( routeName === 'Decks' ) {
           routeIcon = <Ionicons name="ios-albums" size={30} color={tintColor} />;
         } else if ( routeName === 'New Deck' ) {
           routeIcon = <FontAwesome name="plus-square" size={30} color={tintColor} />;
@@ -48,23 +48,34 @@ const Tabs = createBottomTabNavigator(
 );
 
 const MainNavigator = createStackNavigator({
-  Home: {
+  Decks: {
     screen: Tabs,
+    navigationOptions: ({ navigation }) => ({
+      headerTintColor: '#FFFFFF',
+      headerStyle: {
+        backgroundColor: '#71C9C8',
+        height: 20,
+      },
+    }),
   },
-}, {
-  headerMode: 'none'
+  ['New Deck']: {
+    screen: NewDeck,
+    navigationOptions: ({navigation}) => ({
+      headerTintColor: '#FFFFFF',
+      headerStyle: {
+        backgroundColor: '#71C9C8',
+        height: 20,
+      },
+    }),
+  }
 });
 
 class App extends React.Component {
-  state = {
-    headerName: ''
-  }
-
   render() {
     return (
       <Provider store={ createStore(reducer) }>
         <StyledView>
-          <Header headerText="Decks" />
+          <Header />
           <MainNavigator />
         </StyledView>
       </Provider>
