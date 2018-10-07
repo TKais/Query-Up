@@ -7,11 +7,8 @@ import { NavigationActions } from 'react-navigation';
 import { DECK_KEY } from '../utils/storage';
 
 class NewDeck extends React.Component {
-	constructor(props) {
-	    super(props);
-	    this.state = {
-	    	textValue: ''
-	    };
+	state = {
+		textValue: ''
 	}
 
 	handleChange = ( val ) => {
