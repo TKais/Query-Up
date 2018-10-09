@@ -30,6 +30,7 @@ const Tabs = createBottomTabNavigator(
         }
         return routeIcon;
       },
+      tabBarLabel: `${navigation.state.routeName}`,
     }),
     tabBarOptions: {
       initialRouteName: DeckList,
