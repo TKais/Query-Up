@@ -12,12 +12,10 @@ import Deck from './components/Deck';
 import Quiz from './components/Quiz';
 import { StyledView } from './assets/styles/app-styles';
 
-const Tabs = createBottomTabNavigator(
-  {
-    Decks: DeckList,
-    ['New Deck']: NewDeck,
-  },
-  {
+const Tabs = createBottomTabNavigator({
+  Decks: DeckList,
+  ['New Deck']: NewDeck,
+}, {
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
@@ -45,8 +43,16 @@ const Tabs = createBottomTabNavigator(
         paddingBottom: 10,
       }
     },
-  }
-);
+});
+
+Tabs.navigationOptions = ({ navigation }) => {
+  const { routeName } = navigation.state.routes[navigation.state.index];
+  const headerTitle = routeName;
+
+  return {
+    headerTitle
+  };
+};
 
 const MainNavigator = createStackNavigator({
   Decks: {
