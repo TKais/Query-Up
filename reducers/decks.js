@@ -12,7 +12,7 @@ export function decks( state = {}, action ) {
 		    	...state,
 		    	[action.deckName]: {
 		    		title: action.deckName,
-		    		questions: [],
+		    		cards: [],
 		    	}
 		    }
 		default:
