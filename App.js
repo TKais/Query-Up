@@ -8,7 +8,6 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import DeckList from './components/DeckList';
 import NewDeck from './components/NewDeck';
 import Header from './components/Header';
-import Deck from './components/Deck';
 import Quiz from './components/Quiz';
 import { StyledView } from './assets/styles/app-styles';
 
