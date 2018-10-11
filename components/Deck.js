@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { HeaderBackButton } from 'react-navigation';
+import { Platform } from 'react-native';
+import { HeaderBackButton, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
+import Quiz from './Quiz';
 
 class Deck extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -8,14 +10,14 @@ class Deck extends React.Component {
 
     return {
       title: deckName,
-      headerLeft: (<HeaderBackButton onPress={()=>{navigation.navigate('Decks')}}/>),
+      headerLeft: <Ionicons name={ Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back' } size={30} onPress={() => navigation.navigate('Decks')} title="Decks" color="#FFFFFF" />,
     }
   };
 
   render() {
     return (
       <View>
-        <Text>Deck</Text>
+        <Text>Deck View</Text>
       </View>
     );
   }
