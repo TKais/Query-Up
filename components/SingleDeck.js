@@ -4,13 +4,13 @@ import { StyledTouchDeck, StyledWrapper } from '../assets/styles/single-deck-sty
 
 class SingleDeck extends React.Component {
   handlePress = () => {
-    // comment
+    this.props.navigation.navigate('Deck', { deckName: this.props.title });
   }
 	
   render() {
     return (
       <StyledWrapper>
-        <StyledTouchDeck key={this.props.title}>
+        <StyledTouchDeck key={this.props.title} onPress={this.handlePress}>
           <Text>{this.props.title}</Text>
           <Text>{ `${this.props.cardLength} cards` }</Text>
         </StyledTouchDeck>
