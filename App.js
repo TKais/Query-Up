@@ -7,6 +7,8 @@ import reducer from './reducers';
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import DeckList from './components/DeckList';
 import NewDeck from './components/NewDeck';
+import SingleDeck from './components/SingleDeck';
+import Deck from './components/Deck';
 import Header from './components/Header';
 import Quiz from './components/Quiz';
 import { StyledView } from './assets/styles/app-styles';
@@ -72,6 +74,17 @@ const MainNavigator = createStackNavigator({
         backgroundColor: '#71C9C8',
         height: 20,
       },
+    }),
+  },
+  Deck: {
+    screen: Deck,
+    navigationOptions: ({navigation}) => ({
+      headerTintColor: '#FFFFFF',
+      headerStyle: {
+        backgroundColor: '#71C9C8',
+        height: 20,
+      },
+      headerBackTitleVisible: false,
     }),
   }
 });
