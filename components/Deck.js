@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 import { HeaderBackButton, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 import Quiz from './Quiz';
@@ -10,7 +10,7 @@ class Deck extends React.Component {
 
     return {
       title: deckName,
-      headerLeft: <Ionicons name={ Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back' } size={30} onPress={() => navigation.navigate('Decks')} title="Decks" color="#FFFFFF" />,
+      headerLeft: <Ionicons name={ Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back' } size={30} style={{ marginTop: -9, marginLeft: 10 }} onPress={() => navigation.navigate('Decks')} title="Decks" color="#FFFFFF" />,
     }
   };
 
