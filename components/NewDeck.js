@@ -29,7 +29,7 @@ class NewDeck extends React.Component {
 	    } else if ( Object.keys(decks).length > 0 && !Object.keys(decks).includes(value) ) {
 		    return new Error( 'This deck title already exists. Please choose a new deck title.' ) ;
 		}
-		this.props.navigation.navigate( 'Decks' );
+		this.props.navigation.navigate( 'Deck', { deckName: value } );
 	}
 
 	render() {
