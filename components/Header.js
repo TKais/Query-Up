@@ -5,8 +5,8 @@ import { StatusView, StatusText } from '../assets/styles/header-styles';
 function Header( props ) {
 	return (
 		<StatusView>
-          <StatusBar />
-        </StatusView>
+      <StatusBar />
+    </StatusView>
 	);
 }
 
