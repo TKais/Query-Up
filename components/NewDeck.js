@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Keyboard, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
-import { StyledView, StyledInput, StyledButton, ButtonText } from '../assets/styles/new-deck-styles';
+import { StyledInput } from '../assets/styles/new-deck-styles';
+import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
 import { createDeck } from '../actions/decks';
 import { NavigationActions } from 'react-navigation';
 import { DECK_KEY } from '../utils/storage';
