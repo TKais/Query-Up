@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
-import { StyledView } from '../assets/styles/decklist-styles';
+import { StyledView } from '../assets/styles/common';
 import SingleDeck from './SingleDeck';
 import { DECK_KEY } from '../utils/storage';
 
@@ -32,7 +32,7 @@ class DeckList extends React.Component {
 	render() {
 		return (
 			<StyledView>
-			    { Object.keys(this.props.decks).length > 0 ? this.generateDeckList() : this.generateErrorMessage() }
+		    { Object.keys(this.props.decks).length > 0 ? this.generateDeckList() : this.generateErrorMessage() }
 			</StyledView>
 		);
 	}
