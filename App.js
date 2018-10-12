@@ -11,7 +11,7 @@ import SingleDeck from './components/SingleDeck';
 import Deck from './components/Deck';
 import Header from './components/Header';
 import Quiz from './components/Quiz';
-import { StyledView } from './assets/styles/app-styles';
+import { StyledView } from './assets/styles/common';
 
 const Tabs = createBottomTabNavigator({
   Decks: DeckList,
