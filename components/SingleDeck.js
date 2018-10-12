@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { StyledTouchDeck, StyledWrapper } from '../assets/styles/single-deck-styles';
+import { StyledView } from '../assets/styles/common';
 
 class SingleDeck extends React.Component {
   handlePress = () => {
