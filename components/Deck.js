@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, Platform } from 'react-native';
+import { View, Text, Platform, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 import { HeaderBackButton, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
 import Quiz from './Quiz';
+import { StyledHeader } from '../assets/styles/deck-styles';
+import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
 
 class Deck extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,11 +19,21 @@ class Deck extends React.Component {
 
   render() {
     return (
-      <View>
-        <Text>Deck View</Text>
-      </View>
+      <StyledView>
+        <StyledHeader>{this.props.navigation.state.params.deckName}</StyledHeader>
+        <Text>{ `${this.props.decks[this.props.navigation.state.params.deckName].cards.length} cards` }</Text>
+        <StyledButton>
+          <ButtonText>Add Card</ButtonText>
+        </StyledButton>
+      </StyledView>
     );
   }
 }
 
-export default Deck;
+function mapStateToProps({ decks }) {
+  return {
+    decks
+  }
+}
+
+export default connect(mapStateToProps)(Deck);
