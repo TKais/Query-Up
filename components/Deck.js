@@ -25,6 +25,9 @@ class Deck extends React.Component {
         <StyledButton>
           <ButtonText>Add Card</ButtonText>
         </StyledButton>
+        <StyledButton>
+          <ButtonText>Start Quiz</ButtonText>
+        </StyledButton>
       </StyledView>
     );
   }
