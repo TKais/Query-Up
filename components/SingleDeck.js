@@ -13,7 +13,7 @@ class SingleDeck extends React.Component {
       <StyledWrapper>
         <StyledTouchDeck key={this.props.title} onPress={this.handlePress}>
           <Text>{this.props.title}</Text>
-          <Text>{ `${this.props.cardLength} cards` }</Text>
+          <Text>{ `${this.props.cardLength} ${this.props.cardLength === 1 ? 'card' : 'cards'}` }</Text>
         </StyledTouchDeck>
       </StyledWrapper>
     );
