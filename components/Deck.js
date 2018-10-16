@@ -5,6 +5,7 @@ import { HeaderBackButton, createBottomTabNavigator, createStackNavigator } from
 import { Ionicons } from '@expo/vector-icons';
 import { StyledHeader } from '../assets/styles/deck-styles';
 import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
+import { deleteDeck } from '../actions/decks';
 
 class Deck extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,6 +17,11 @@ class Deck extends React.Component {
     }
   };
 
+  generateCardLengthText = () => {
+    const length = this.props.decks[this.props.navigation.state.params.deckName] && this.props.decks[this.props.navigation.state.params.deckName].cards.length;
+    return `${length} cards` || null;
+  }
+
   handleAddCardPress = () => {
     this.props.navigation.navigate('Add Card');
   }
@@ -24,18 +30,24 @@ class Deck extends React.Component {
     this.props.navigation.navigate('Start Quiz');
   }
 
+  handleDeleteDeckPress = () => {
+    const deckName = this.props.navigation.state.params.deckName;
+    this.props.dispatch(deleteDeck(deckName));
+    this.props.navigation.navigate('Decks');
+  }
+
   render() {
     return (
       <StyledView>
         <StyledHeader>{this.props.navigation.state.params.deckName}</StyledHeader>
-        <Text>{ `${this.props.decks[this.props.navigation.state.params.deckName].cards.length} cards` }</Text>
+        <Text>{ this.generateCardLengthText() }</Text>
         <StyledButton onPress={this.handleAddCardPress}>
           <ButtonText>Add Card</ButtonText>
         </StyledButton>
         <StyledButton onPress={this.handleStartQuizPress}>
           <ButtonText>Start Quiz</ButtonText>
         </StyledButton>
-        <StyledButton>
+        <StyledButton onPress={this.handleDeleteDeckPress}>
           <ButtonText>Delete Deck</ButtonText>
         </StyledButton>
       </StyledView>
