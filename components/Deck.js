@@ -18,12 +18,13 @@ class Deck extends React.Component {
   };
 
   generateCardLengthText = () => {
-    const length = this.props.decks[this.props.navigation.state.params.deckName] && this.props.decks[this.props.navigation.state.params.deckName].cards.length;
-    return `${length} cards` || null;
+    const deckName = this.props.decks[this.props.navigation.state.params.deckName];
+    const length = deckName && deckName.cards.length;
+    return `${length} ${length === 1 ? 'card' : 'cards'}` || null;
   }
 
   handleAddCardPress = () => {
-    this.props.navigation.navigate('Add Card');
+    this.props.navigation.navigate('Add Card', {deckName: this.props.navigation.state.params.deckName});
   }
 
   handleStartQuizPress = () => {
