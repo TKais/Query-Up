@@ -11,6 +11,7 @@ import SingleDeck from './components/SingleDeck';
 import Deck from './components/Deck';
 import Header from './components/Header';
 import Quiz from './components/Quiz';
+import AddCard from './components/AddCard';
 import { StyledView } from './assets/styles/common';
 
 const Tabs = createBottomTabNavigator({
@@ -78,6 +79,17 @@ const MainNavigator = createStackNavigator({
   },
   Deck: {
     screen: Deck,
+    navigationOptions: ({navigation}) => ({
+      headerTintColor: '#FFFFFF',
+      headerStyle: {
+        backgroundColor: '#71C9C8',
+        height: 20,
+      },
+      headerBackTitleVisible: false,
+    }),
+  },
+  ['Add Card']: {
+    screen: AddCard,
     navigationOptions: ({navigation}) => ({
       headerTintColor: '#FFFFFF',
       headerStyle: {
