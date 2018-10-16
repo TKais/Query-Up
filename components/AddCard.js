@@ -10,6 +10,18 @@ class AddCard extends React.Component {
     cardAnswer: '',
   }
 
+  handleQuestionChange = (value) => {
+    this.setState({
+      cardQuestion: value
+    });
+  }
+
+  handleAnswerChange = (value) => {
+    this.setState({
+      cardAnswer: value
+    });
+  }
+
   handleAddCard = () => {
     const deckName = this.props.navigation.state.params.deckName;
     this.props.dispatch(createCard(deckName, { Question: this.state.cardQuestion, Answer: this.state.cardAnswer}));
@@ -24,8 +36,8 @@ class AddCard extends React.Component {
     return (
       <StyledView>
         <Text>Add Card</Text>
-        <StyledInput placeholder="Question" value={this.state.cardQuestion} />
-        <StyledInput placeholder="Answer" value={this.state.cardAnswer} />
+        <StyledInput placeholder="Question" value={this.state.cardQuestion} onChangeText={ this.handleQuestionChange } />
+        <StyledInput placeholder="Answer" value={this.state.cardAnswer} onChangeText={ this.handleAnswerChange } />
         <StyledButton onPress={this.handleAddCard}>
           <ButtonText>Submit</ButtonText>
         </StyledButton>
