@@ -98,6 +98,17 @@ const MainNavigator = createStackNavigator({
       },
       headerBackTitleVisible: false,
     }),
+  },
+  ['Start Quiz']: {
+    screen: Quiz,
+    navigationOptions: ({navigation}) => ({
+      headerTintColor: '#FFFFFF',
+      headerStyle: {
+        backgroundColor: '#71C9C8',
+        height: 20,
+      },
+      headerBackTitleVisible: false,
+    }),
   }
 });
 
