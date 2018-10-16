@@ -3,7 +3,6 @@ import { View, Text, Platform, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { HeaderBackButton, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
-import Quiz from './Quiz';
 import { StyledHeader } from '../assets/styles/deck-styles';
 import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
 
@@ -21,6 +20,10 @@ class Deck extends React.Component {
     this.props.navigation.navigate('Add Card');
   }
 
+  handleStartQuizPress = () => {
+    this.props.navigation.navigate('Start Quiz');
+  }
+
   render() {
     return (
       <StyledView>
@@ -29,7 +32,7 @@ class Deck extends React.Component {
         <StyledButton onPress={this.handleAddCardPress}>
           <ButtonText>Add Card</ButtonText>
         </StyledButton>
-        <StyledButton>
+        <StyledButton onPress={this.handleStartQuizPress}>
           <ButtonText>Start Quiz</ButtonText>
         </StyledButton>
         <StyledButton>
