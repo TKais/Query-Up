@@ -22,11 +22,12 @@ export function decks( state = {}, action ) {
 		case CREATE_CARD:
 		  const deck = Object.assign({}, state[action.deckName]);
 		  const cardArray = Array.from(state[action.deckName].cards);
+		  cardArray.push(action.card);
 		  return {
 		  	...state,
 		  	[action.deckName]: {
 		  		...deck,
-		  		cards: cardArray.push(action.card),
+		  		cards: cardArray,
 		  	}
 		  }
 		default:
