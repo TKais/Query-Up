@@ -28,7 +28,7 @@ class Deck extends React.Component {
   }
 
   handleStartQuizPress = () => {
-    this.props.navigation.navigate('Start Quiz');
+    this.props.navigation.navigate('Start Quiz', {deckName: this.props.navigation.state.params.deckName});
   }
 
   handleDeleteDeckPress = () => {

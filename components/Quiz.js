@@ -1,14 +1,36 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { StyledView } from '../assets/styles/common';
+import { connect } from 'react-redux';
 
 class Quiz extends React.Component {
+  generateQuiz = () => {
+    const decks = this.props.decks;
+    const deckName = this.props.navigation.state.params.deckName;
+    decks[deckName].cards.length > 0 ? this.showCards(decks[deckName].cards) : this.showError(deckName);
+  }
+
+  showCards = (cards) => {
+    // ok
+  }
+
+  showError = (deckName) => {
+    return `Sorry, you cannot take a quiz because there are no cards in deck ${deckName}`;
+  }
+
 	render() {
 		return (
-			<View>
-			    <Text>Quiz View</Text>
-			</View>
+			<StyledView>
+			    <Text>{this.generateQuiz()}</Text>
+			</StyledView>
 		);
 	}
 }
 
-export default Quiz;
+function mapStateToProps({ decks }) {
+  return {
+    decks
+  }
+}
+
+export default connect(mapStateToProps)(Quiz);
