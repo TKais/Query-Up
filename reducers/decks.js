@@ -1,4 +1,4 @@
-import { GET_DECKS, CREATE_DECK, DELETE_DECK } from '../actions/decks';
+import { GET_DECKS, CREATE_DECK, DELETE_DECK, CREATE_CARD } from '../actions/decks';
 
 export function decks( state = {}, action ) {
 	switch( action.type ) {
@@ -19,6 +19,16 @@ export function decks( state = {}, action ) {
 		  const newState = Object.assign({}, state);
 		  delete newState[action.deckName];
 		  return newState;
+		case CREATE_CARD:
+		  const deck = Object.assign({}, state[action.deckName]);
+		  const cardArray = Array.from(state[action.deckName].cards);
+		  return {
+		  	...state,
+		  	[action.deckName]: {
+		  		...deck,
+		  		cards: cardArray.push(action.card),
+		  	}
+		  }
 		default:
 		    return state;
 	}
