@@ -13,16 +13,20 @@ class Deck extends React.Component {
 
     return {
       title: deckName,
-      headerLeft: <Ionicons name={ Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back' } size={30} style={{ marginTop: -9, marginLeft: 10 }} onPress={() => navigation.navigate('Decks')} title="Decks" color="#FFFFFF" />,
+      headerLeft: <Ionicons name={ Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back' } size={30} style={{ marginTop: -5, marginLeft: 10 }} onPress={() => navigation.navigate('Decks')} title="Decks" color="#FFFFFF" />,
     }
   };
+
+  handleAddCardPress = () => {
+    this.props.navigation.navigate('Add Card');
+  }
 
   render() {
     return (
       <StyledView>
         <StyledHeader>{this.props.navigation.state.params.deckName}</StyledHeader>
         <Text>{ `${this.props.decks[this.props.navigation.state.params.deckName].cards.length} cards` }</Text>
-        <StyledButton>
+        <StyledButton onPress={this.handleAddCardPress}>
           <ButtonText>Add Card</ButtonText>
         </StyledButton>
         <StyledButton>
