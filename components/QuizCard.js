@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Animated, StyleSheet, Dimensions } from 'react-native';
 import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
-import { StyledCard } from '../assets/styles/quiz-card-styles';
 
 class QuizCard extends React.Component {
   state = {
