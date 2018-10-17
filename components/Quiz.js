@@ -42,7 +42,7 @@ class Quiz extends React.Component {
 
     if(cardIndex <= cards.length - 1) {
       return (
-        <QuizCard question={cards[cardIndex].Question} answer={cards[cardIndex].Answer} onCorrectAnswer={this.handleCorrectAnswer} onIncorrectAnswer={this.handleIncorrectAnswer} />
+        <QuizCard cards={cards} cardIndex={cardIndex + 1} question={cards[cardIndex].Question} answer={cards[cardIndex].Answer} onCorrectAnswer={this.handleCorrectAnswer} onIncorrectAnswer={this.handleIncorrectAnswer} />
       );
     } else {
       return (
