@@ -17,7 +17,7 @@ class Score extends React.Component {
         <Text>Correct: {this.props.numberCorrect}</Text>
         <Text>Incorrect: {this.props.numberIncorrect}</Text>
         <StyledButton onPress={this.startQuiz}>
-          <ButtonText>Start Over</ButtonText>
+          <ButtonText>Restart Quiz</ButtonText>
         </StyledButton>
         <StyledButton onPress={this.routeToDeck}>
           <ButtonText>Back to Deck</ButtonText>
