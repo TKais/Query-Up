@@ -25,4 +25,11 @@ This app uses the following technologies:
 * Create decks of mobile flashcards
 * Add cards to each deck
 * Start a quiz for each deck
+* Receive notifications to start a quiz each day
 * Delete decks
+
+## Tested Platforms
+
+* iOS simulator
+* Android emulator
+* Pixel 2 device (running Android 9 - Pie)
