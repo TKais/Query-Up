@@ -1,12 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
+import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
 
 class QuizCard extends React.Component {
   render() {
     return (
-      <View>
-      <Text>Heyyy</Text>
-      </View>
+      <StyledView>
+        <Text>{this.props.question}</Text>
+        <StyledButton>
+          <ButtonText>Answer</ButtonText>
+        </StyledButton>
+        <StyledButton>
+          <ButtonText>Correct</ButtonText>
+        </StyledButton>
+        <StyledButton>
+          <ButtonText>Incorrect</ButtonText>
+        </StyledButton>
+      </StyledView>
     );
   }
 }
