@@ -6,7 +6,9 @@ import QuizCard from './QuizCard';
 
 class Quiz extends React.Component {
   state = {
-    cardIndex: 0
+    cardIndex: 0,
+    correct: 0,
+    incorrect: 0
   }
 
   generateQuiz = () => {
@@ -19,11 +21,15 @@ class Quiz extends React.Component {
   createCard = (cards) => {
     const cardIndex = this.state.cardIndex;
 
-    if(cardIndex < cards.length - 1) {
+    if(cardIndex <= cards.length - 1) {
       return (
         <QuizCard question={cards[cardIndex].Question} answer={cards[cardIndex].Answer} />
       );
     }
+  }
+
+  handlePress = (event) => {
+    console.log('EVENT---->', event);
   }
 
   showError = (deckName) => {
