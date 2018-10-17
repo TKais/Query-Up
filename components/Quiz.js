@@ -46,7 +46,7 @@ class Quiz extends React.Component {
       );
     } else {
       return (
-        <Score numberCorrect={this.state.correct} numberIncorrect={this.state.incorrect} />
+        <Score numberCorrect={this.state.correct} numberIncorrect={this.state.incorrect} navigation={this.props.navigation} />
       );
     }
   }
