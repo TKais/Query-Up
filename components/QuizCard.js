@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, Animated, StyleSheet, Dimensions } from 'react-native';
 import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
+import { StyledNumberText } from '../assets/styles/quiz-card-styles';
 
 class QuizCard extends React.Component {
   state = {
-    showAnswer: false
+    answerIsVisible: false
   }
 
   componentWillMount() {
@@ -23,7 +24,9 @@ class QuizCard extends React.Component {
     })
   }
 
-  showAnswer = () => {
+  showQuestionAndAnswer = () => {
+    this.setState({ answerIsVisible: !this.state.answerIsVisible });
+
     if (this.value >= 90) {
       Animated.spring(this.animatedValue,{
         toValue: 0,
@@ -42,8 +45,8 @@ class QuizCard extends React.Component {
   renderButtonContainer = () => {
     return (
       <View>
-        <StyledButton onPress={this.showAnswer}>
-          <ButtonText>Answer</ButtonText>
+        <StyledButton onPress={this.showQuestionAndAnswer}>
+          <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
         </StyledButton>
         <StyledButton onPress={this.props.onCorrectAnswer}>
           <ButtonText>Correct</ButtonText>
@@ -68,6 +71,7 @@ class QuizCard extends React.Component {
     }
     return (
       <StyledView>
+        <StyledNumberText>{ `${this.props.cardIndex}/${this.props.cards.length}` }</StyledNumberText>
         <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
         <Text>{this.props.question}</Text>
         { this.renderButtonContainer() }
