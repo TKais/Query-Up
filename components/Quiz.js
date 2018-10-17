@@ -16,13 +16,17 @@ class Quiz extends React.Component {
   }
 
   showError = (deckName) => {
-    return `Sorry, you cannot take a quiz because there are no cards in deck ${deckName}`;
+    return (
+      <Text>
+        { `Sorry, you cannot take a quiz because there are no cards in deck ${deckName}` }
+      </Text>
+    );
   }
 
   render() {
     return (
       <StyledView>
-        <Text>{this.generateQuiz()}</Text>
+        {this.generateQuiz()}
       </StyledView>
     );
   }
