@@ -5,8 +5,8 @@ import { StyledView } from '../assets/styles/common';
 function Score(props) {
   return (
     <StyledView>
-      <Text>{props.numberCorrect}</Text>
-      <Text>{props.numberIncorrect}</Text>
+      <Text>Correct: {props.numberCorrect}</Text>
+      <Text>Incorrect: {props.numberIncorrect}</Text>
     </StyledView>
   );
 }
