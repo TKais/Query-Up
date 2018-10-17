@@ -7,24 +7,25 @@ class Quiz extends React.Component {
   generateQuiz = () => {
     const decks = this.props.decks;
     const deckName = this.props.navigation.state.params.deckName;
-    decks[deckName].cards.length > 0 ? this.showCards(decks[deckName].cards) : this.showError(deckName);
+    
+    return decks[deckName].cards.length > 0 ? this.showCards(decks[deckName].cards) : this.showError(deckName);
   }
 
   showCards = (cards) => {
-    // ok
+    console.log(cards);
   }
 
   showError = (deckName) => {
     return `Sorry, you cannot take a quiz because there are no cards in deck ${deckName}`;
   }
 
-	render() {
-		return (
-			<StyledView>
-			    <Text>{this.generateQuiz()}</Text>
-			</StyledView>
-		);
-	}
+  render() {
+    return (
+      <StyledView>
+        <Text>{this.generateQuiz()}</Text>
+      </StyledView>
+    );
+  }
 }
 
 function mapStateToProps({ decks }) {
