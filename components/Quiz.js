@@ -52,7 +52,11 @@ class Quiz extends React.Component {
   }
 
   resetQuiz = () => {
-    this.setState({ cardIndex: 0 });
+    this.setState({ 
+      cardIndex: 0,
+      correct: 0,
+      incorrect: 0
+    });
   }
 
   showError = (deckName) => {
