@@ -3,8 +3,8 @@ import { Text } from 'react-native';
 import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
 
 class Score extends React.Component {
-  routeToQuiz = () => {
-    this.props.navigation.navigate('Start Quiz', {deckName: this.props.navigation.state.params.deckName});
+  startQuiz = () => {
+    this.props.onResetQuiz();
   }
 
   routeToDeck = () => {
@@ -16,7 +16,7 @@ class Score extends React.Component {
       <StyledView>
         <Text>Correct: {this.props.numberCorrect}</Text>
         <Text>Incorrect: {this.props.numberIncorrect}</Text>
-        <StyledButton onPress={this.routeToQuiz}>
+        <StyledButton onPress={this.startQuiz}>
           <ButtonText>Start Over</ButtonText>
         </StyledButton>
         <StyledButton onPress={this.routeToDeck}>
