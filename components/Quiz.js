@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 import { StyledView } from '../assets/styles/common';
 import { connect } from 'react-redux';
 import QuizCard from './QuizCard';
+import Score from './Score';
 
 class Quiz extends React.Component {
   state = {
@@ -18,18 +19,36 @@ class Quiz extends React.Component {
     return decks[deckName].cards.length > 0 ? this.createCard(decks[deckName].cards) : this.showError(deckName);
   }
 
+  handleCorrectAnswer = () => {
+    const correctAnswer = this.state.correct += 1;
+    const newCardIndex = this.state.cardIndex += 1;
+    this.setState({
+      cardIndex: newCardIndex,
+      correct: correctAnswer,
+    });
+  }
+
+  handleIncorrectAnswer = () => {
+    const incorrectAnswer = this.state.incorrect += 1;
+    const newCardIndex = this.state.cardIndex += 1;
+    this.setState({
+      cardIndex: newCardIndex,
+      incorrect: incorrectAnswer,
+    });
+  }
+
   createCard = (cards) => {
     const cardIndex = this.state.cardIndex;
 
     if(cardIndex <= cards.length - 1) {
       return (
-        <QuizCard question={cards[cardIndex].Question} answer={cards[cardIndex].Answer} />
+        <QuizCard question={cards[cardIndex].Question} answer={cards[cardIndex].Answer} onCorrectAnswer={this.handleCorrectAnswer} onIncorrectAnswer={this.handleIncorrectAnswer} />
+      );
+    } else {
+      return (
+        <Score numberCorrect={this.state.correct} numberIncorrect={this.state.incorrect} />
       );
     }
-  }
-
-  handlePress = (event) => {
-    console.log('EVENT---->', event);
   }
 
   showError = (deckName) => {
