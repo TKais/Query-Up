@@ -40,15 +40,19 @@ class Quiz extends React.Component {
   createCard = (cards) => {
     const cardIndex = this.state.cardIndex;
 
-    if(cardIndex <= cards.length - 1) {
+    if (cardIndex <= cards.length - 1) {
       return (
         <QuizCard cards={cards} cardIndex={cardIndex + 1} question={cards[cardIndex].Question} answer={cards[cardIndex].Answer} onCorrectAnswer={this.handleCorrectAnswer} onIncorrectAnswer={this.handleIncorrectAnswer} />
       );
     } else {
       return (
-        <Score numberCorrect={this.state.correct} numberIncorrect={this.state.incorrect} navigation={this.props.navigation} />
+        <Score numberCorrect={this.state.correct} numberIncorrect={this.state.incorrect} navigation={this.props.navigation} onResetQuiz={this.resetQuiz} />
       );
     }
+  }
+
+  resetQuiz = () => {
+    this.setState({ cardIndex: 0 });
   }
 
   showError = (deckName) => {
