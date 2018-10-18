@@ -19,7 +19,7 @@ class Deck extends React.Component {
 
   generateCardLengthText = () => {
     const deckName = this.props.decks[this.props.navigation.state.params.deckName];
-    const length = deckName && deckName.cards.length;
+    const length = deckName && deckName.questions.length;
     return `${length} ${length === 1 ? 'card' : 'cards'}` || null;
   }
 
