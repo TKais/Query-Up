@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StyledView, StyledButton, ButtonText, StyledInput } from '../assets/styles/common';
 import { createDeck } from '../actions/decks';
 import { NavigationActions } from 'react-navigation';
-import { DECK_KEY } from '../utils/storage';
+import { addAsyncDeck } from '../utils/storage';
 
 class NewDeck extends React.Component {
 	state = {
@@ -20,10 +20,16 @@ class NewDeck extends React.Component {
 	handlePress = () => {
 		const decks = this.props.decks;
 		const value = this.state.textValue;
+		const deckData = { 
+			[value]: { 
+				title: value,
+				cards: [], 
+			} 
+		};
 
 		if ( value.length > 0 ) {
-			this.props.dispatch( createDeck(value) );
-			AsyncStorage.setItem( DECK_KEY, JSON.stringify({ [value]: { title: value, questions: [], } }))
+			addAsyncDeck( deckData )
+			    .then( this.props.dispatch(createDeck(value)) )
 			    .then( Keyboard.dismiss() )
 			    .then( this.setState({ textValue: '' }) );
 	    } else if ( Object.keys(decks).length > 0 && !Object.keys(decks).includes(value) ) {
