@@ -35,7 +35,7 @@ class Deck extends React.Component {
   handleDeleteDeckPress = () => {
     const deckName = this.props.navigation.state.params.deckName;
 
-    removeAsyncDeck(this.props.decks[deckName])
+    removeAsyncDeck(deckName)
       .then(this.props.dispatch(deleteDeck(deckName)))
       .then(this.props.navigation.navigate('Decks'));
   }
