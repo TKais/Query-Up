@@ -15,5 +15,5 @@ export const addAsyncDeck = ( deck ) => {
 }
 
 export const removeAsyncDeck = ( deck ) => {
-  return AsyncStorage.removeItem(DECK_KEY, JSON.stringify( deck ))
+  return AsyncStorage.removeItem(deck)
 }
