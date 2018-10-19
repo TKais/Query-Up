@@ -16,12 +16,11 @@ class DeckList extends React.Component {
 
 	generateDeckList = () => {
 		const deckArray = Object.values(this.props.decks);
-		console.log('???????????--->', deckArray);
 
 		return (
 			<FlatList
 				data={ deckArray }
-				renderItem={ ({ item, index }) => <SingleDeck title={item.title} cardLength={item.questions.length} navigation={this.props.navigation} /> }
+				renderItem={ ({ item, index }) => <SingleDeck title={item.title} cardLength={item.cards.length} navigation={this.props.navigation} /> }
 				showsVerticalScrollIndicator={false}
 				keyExtractor={ item => item.title }
 			/>
