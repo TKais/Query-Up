@@ -3,10 +3,10 @@ import { Notifications, Permissions } from 'expo';
 
 export const NOTIFICATION_KEY = 'QueryUp:notifications';
 
-function createNotification () {
+function createNotificationContent () {
   return {
-    title: 'Log your stats!',
-    body: "👋 don't forget to log your stats for today!",
+    title: 'Take a quiz',
+    body: "Don't forget to quiz yourself daily",
     ios: {
       sound: true,
     },
@@ -36,7 +36,7 @@ export const setLocalNotification = () => {
               tomorrow.setMinutes(0)
 
               Notifications.scheduleLocalNotificationAsync(
-                createNotification(),
+                createNotificationContent(),
                 {
                   time: tomorrow,
                   repeat: 'day',
