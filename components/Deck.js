@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { StyledHeader } from '../assets/styles/deck-styles';
 import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
 import { deleteDeck } from '../actions/decks';
+import { removeAsyncDeck } from '../utils/storage';
 
 class Deck extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -19,7 +20,7 @@ class Deck extends React.Component {
 
   generateCardLengthText = () => {
     const deckName = this.props.decks[this.props.navigation.state.params.deckName];
-    const length = deckName && deckName.questions.length;
+    const length = deckName && deckName.cards.length;
     return `${length} ${length === 1 ? 'card' : 'cards'}` || null;
   }
 
@@ -33,8 +34,10 @@ class Deck extends React.Component {
 
   handleDeleteDeckPress = () => {
     const deckName = this.props.navigation.state.params.deckName;
-    this.props.dispatch(deleteDeck(deckName));
-    this.props.navigation.navigate('Decks');
+
+    removeAsyncDeck(this.props.decks[deckName])
+      .then(this.props.dispatch(deleteDeck(deckName)))
+      .then(this.props.navigation.navigate('Decks'));
   }
 
   render() {
