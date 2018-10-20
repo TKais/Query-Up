@@ -13,6 +13,7 @@ import Header from './components/Header';
 import Quiz from './components/Quiz';
 import AddCard from './components/AddCard';
 import { StyledView } from './assets/styles/common';
+import { setLocalNotification } from './utils/notifications';
 
 const Tabs = createBottomTabNavigator({
   Decks: DeckList,
@@ -113,6 +114,10 @@ const MainNavigator = createStackNavigator({
 });
 
 class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
+
   render() {
     return (
       <Provider store={ createStore(reducer) }>
