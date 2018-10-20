@@ -5,13 +5,14 @@ import { StyledView, StyledButton, ButtonText, StyledInput } from '../assets/sty
 import { createDeck } from '../actions/decks';
 import { NavigationActions } from 'react-navigation';
 import { addAsyncDeck } from '../utils/storage';
+import { clearLocalNotification, setLocalNotification } from '../utils/notifications';
 
 class NewDeck extends React.Component {
 	state = {
 		textValue: ''
 	}
 
-	handleChange = ( val ) => {
+	handleChange = (val) => {
 		this.setState({
 			textValue: val
 		});
@@ -27,15 +28,17 @@ class NewDeck extends React.Component {
 			} 
 		};
 
-		if ( value.length > 0 ) {
-			addAsyncDeck( deckData )
-			    .then( this.props.dispatch(createDeck(value)) )
-			    .then( Keyboard.dismiss() )
-			    .then( this.setState({ textValue: '' }) );
-	    } else if ( Object.keys(decks).length > 0 && !Object.keys(decks).includes(value) ) {
+		if (value.length > 0) {
+			addAsyncDeck(deckData)
+			    .then(this.props.dispatch(createDeck(value)))
+			    .then(Keyboard.dismiss())
+			    .then(this.setState({ textValue: '' }))
+			    .then(clearLocalNotification())
+          .then(setLocalNotification());
+	    } else if (Object.keys(decks).length > 0 && !Object.keys(decks).includes(value)) {
 		    return new Error( 'This deck title already exists. Please choose a new deck title.' ) ;
 		}
-		this.props.navigation.navigate( 'Deck', { deckName: value } );
+		this.props.navigation.navigate('Deck', { deckName: value });
 	}
 
 	render() {
