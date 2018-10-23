@@ -20,6 +20,7 @@ export const StyledButton = styled.TouchableOpacity`
 
 export const ButtonText = styled.Text`
   text-align: center;
+  color: #FFFFFF;
 `
 
 export const StyledInput = styled.TextInput`
