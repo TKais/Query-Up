@@ -45,7 +45,7 @@ class NewDeck extends React.Component {
 		return (
 			<StyledView>
 			    <Text>What is the title of your new deck?</Text>
-			    <StyledInput value={ this.state.textValue } onChangeText={ this.handleChange } />
+			    <StyledInput underlineColorAndroid="transparent" value={ this.state.textValue } onChangeText={ this.handleChange } />
 			    <StyledButton onPress={this.handlePress}>
 			      <ButtonText>Create Deck</ButtonText>
 			    </StyledButton>
