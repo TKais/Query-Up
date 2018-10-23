@@ -1,8 +1,9 @@
 import React from 'react';
 import { Text } from 'react-native';
+import { connect } from 'react-redux';
 import { StyledTouchDeck, StyledWrapper } from '../assets/styles/single-deck-styles';
 import { StyledView, ButtonText } from '../assets/styles/common';
-import { setCardColors } from '../utils/styles';
+import { setDeckColors } from '../utils/styles';
 
 class SingleDeck extends React.Component {
   handlePress = () => {
@@ -12,7 +13,7 @@ class SingleDeck extends React.Component {
   render() {
     return (
       <StyledWrapper>
-        <StyledTouchDeck theme={{ cardColor: setCardColors() }} key={this.props.title} onPress={this.handlePress}>
+        <StyledTouchDeck theme={{ cardColor: setDeckColors(this.props.deckLength) }} key={this.props.title} onPress={this.handlePress}>
           <ButtonText>{this.props.title}</ButtonText>
           <ButtonText>{ `${this.props.cardLength} ${this.props.cardLength === 1 ? 'card' : 'cards'}` }</ButtonText>
         </StyledTouchDeck>
@@ -21,4 +22,10 @@ class SingleDeck extends React.Component {
   }
 }
 
-export default SingleDeck;
+function mapStateToProps({ decks }) {
+  return {
+    deckLength: Object.keys(decks).length
+  }
+}
+
+export default connect(mapStateToProps)(SingleDeck);
