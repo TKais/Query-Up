@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { StyledTouchDeck, StyledWrapper } from '../assets/styles/single-deck-styles';
-import { StyledView } from '../assets/styles/common';
+import { StyledView, ButtonText } from '../assets/styles/common';
+import { setCardColors } from '../utils/styles';
 
 class SingleDeck extends React.Component {
   handlePress = () => {
@@ -11,9 +12,9 @@ class SingleDeck extends React.Component {
   render() {
     return (
       <StyledWrapper>
-        <StyledTouchDeck key={this.props.title} onPress={this.handlePress}>
-          <Text>{this.props.title}</Text>
-          <Text>{ `${this.props.cardLength} ${this.props.cardLength === 1 ? 'card' : 'cards'}` }</Text>
+        <StyledTouchDeck theme={{ cardColor: setCardColors() }} key={this.props.title} onPress={this.handlePress}>
+          <ButtonText>{this.props.title}</ButtonText>
+          <ButtonText>{ `${this.props.cardLength} ${this.props.cardLength === 1 ? 'card' : 'cards'}` }</ButtonText>
         </StyledTouchDeck>
       </StyledWrapper>
     );
