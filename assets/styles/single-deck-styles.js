@@ -15,9 +15,10 @@ export const StyledTouchDeck = styled.TouchableOpacity`
   border-color: ${props => props.theme.cardColor};
   border-radius: 7;
   shadow-color: #717171;
-  shadow-opacity: 1.5;
+  shadow-opacity: .25;
   shadow-radius: 10;
-  margin-top: 50;
+  margin-top: -1;
+  padding-bottom: 35;
   padding-top: 35;
   width: 75%;
 `
