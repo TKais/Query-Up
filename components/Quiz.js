@@ -16,11 +16,9 @@ class Quiz extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const deckName = navigation.state.params.deckName;
 
-    if(Platform.OS === 'android') {
-      return {
-        title: deckName,
-        headerLeft: <Ionicons name={ 'md-arrow-back' } size={30} style={{ marginTop: -5, marginLeft: 10 }} onPress={() => navigation.navigate('Deck')} title={deckName} color="#FFFFFF" />,
-      }
+    return {
+      title: deckName,
+      headerLeft: <Ionicons name={ Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back' } size={30} style={{ marginTop: -5, marginLeft: 10 }} onPress={() => navigation.navigate('Deck')} title={deckName} color="#FFFFFF" />,
     }
   };
 
