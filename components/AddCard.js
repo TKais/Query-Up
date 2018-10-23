@@ -36,8 +36,8 @@ class AddCard extends React.Component {
     return (
       <StyledView>
         <Text>Add Card</Text>
-        <StyledInput placeholder="Question" value={this.state.cardQuestion} onChangeText={ this.handleQuestionChange } />
-        <StyledInput placeholder="Answer" value={this.state.cardAnswer} onChangeText={ this.handleAnswerChange } />
+        <StyledInput underlineColorAndroid="transparent" placeholder="Question" value={this.state.cardQuestion} onChangeText={ this.handleQuestionChange } />
+        <StyledInput underlineColorAndroid="transparent" placeholder="Answer" value={this.state.cardAnswer} onChangeText={ this.handleAnswerChange } />
         <StyledButton onPress={this.handleAddCard}>
           <ButtonText>Submit</ButtonText>
         </StyledButton>
