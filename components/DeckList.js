@@ -20,7 +20,7 @@ class DeckList extends React.Component {
 		return (
 			<FlatList
 				data={ deckArray }
-				renderItem={ ({ item, index }) => <SingleDeck title={item.title} cardLength={item.cards.length} navigation={this.props.navigation} /> }
+				renderItem={ ({ item, index }) => <SingleDeck title={item.title} cardLength={item.cards.length} navigation={this.props.navigation} deckIndex={index} /> }
 				showsVerticalScrollIndicator={false}
 				keyExtractor={ item => item.title }
 			/>
