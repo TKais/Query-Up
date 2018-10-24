@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { createCard } from '../actions/decks';
 import { addAsyncCard } from '../utils/storage';
 import { StyledView, StyledButton, ButtonText, StyledInput } from '../assets/styles/common';
-import { clearLocalNotification, setLocalNotification } from '../utils/notifications';
 
 class AddCard extends React.Component {
   state = {
@@ -29,8 +28,6 @@ class AddCard extends React.Component {
     const card = { Question: this.state.cardQuestion, Answer: this.state.cardAnswer};
     return addAsyncCard(deckName, card)
       .then(this.props.dispatch(createCard(deckName, card)))
-      .then(clearLocalNotification())
-      .then(setLocalNotification())
       .then(this.setState({ cardQuestion: '', cardAnswer: '' }))
       .then(this.props.navigation.navigate('Decks'));
   }
