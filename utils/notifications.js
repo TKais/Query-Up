@@ -3,10 +3,10 @@ import { Notifications, Permissions } from 'expo';
 
 export const NOTIFICATION_KEY = 'QueryUp:notifications';
 
-function createNotificationContent () {
+function _createNotificationContent () {
   return {
-    title: 'Take a quiz',
-    body: "Don't forget to quiz yourself daily",
+    title: 'Practice makes perfect!',
+    body: 'Don\'t forget to quiz yourself daily',
     ios: {
       sound: true,
     },
@@ -26,30 +26,27 @@ export function clearLocalNotification () {
 
 export const setLocalNotification = () => {
   AsyncStorage.getItem(NOTIFICATION_KEY)
-    .then((result) => JSON.parse(result))
+    .then(JSON.parse)
     .then((result) => {
-      console.log('RESULT--->', result);
       if(result === null) {
         Permissions.askAsync(Permissions.NOTIFICATIONS)
           .then(({status}) => {
-            if(status === 'granted') {
-              Notifications.cancelAllScheduledNotificationsAsync()
+            Notifications.cancelAllScheduledNotificationsAsync()
 
-              let tomorrow = new Date()
-              tomorrow.setDate(tomorrow.getDate() + 1)
-              tomorrow.setHours(20)
-              tomorrow.setMinutes(0)
+            let tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(20);
+            tomorrow.setMinutes(0);
 
-              Notifications.scheduleLocalNotificationAsync(
-                createNotificationContent(),
-                {
-                  time: tomorrow,
-                  repeat: 'day',
-                }
-              )
+            Notifications.scheduleLocalNotificationAsync(
+              _createNotificationContent(),
+              {
+                time: tomorrow,
+                repeat: 'day',
+              }
+            )
 
-              AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true))
-            }
+            AsyncStorage.setItem(NOTIFICATION_KEY, JSON.stringify(true))
           })
       }
     })
