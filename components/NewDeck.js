@@ -5,6 +5,7 @@ import { StyledView, StyledButton, ButtonText, StyledInput } from '../assets/sty
 import { createDeck } from '../actions/decks';
 import { NavigationActions } from 'react-navigation';
 import { addAsyncDeck } from '../utils/storage';
+import { colorPalette } from '../utils/styles';
 import { clearLocalNotification, setLocalNotification } from '../utils/notifications';
 
 class NewDeck extends React.Component {
@@ -46,7 +47,7 @@ class NewDeck extends React.Component {
 			<StyledView>
 			    <Text>What is the title of your new deck?</Text>
 			    <StyledInput underlineColorAndroid="transparent" value={ this.state.textValue } onChangeText={ this.handleChange } />
-			    <StyledButton onPress={this.handlePress}>
+			    <StyledButton onPress={this.handlePress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.lightYellow }}>
 			      <ButtonText>Create Deck</ButtonText>
 			    </StyledButton>
 			</StyledView>
