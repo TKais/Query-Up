@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Animated, StyleSheet, Dimensions, Platform } from 'react-native';
-import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
+import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView } from '../assets/styles/common';
 import { StyledNumberText } from '../assets/styles/quiz-card-styles';
+import { colorPalette } from '../utils/styles';
 
 class QuizCard extends React.Component {
   state = {
@@ -46,13 +47,13 @@ class QuizCard extends React.Component {
   renderButtonContainer = () => {
     return (
       <View>
-        <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8}>
+        <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
           <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.props.onCorrectAnswer} activeOpacity={0.8}>
+        <StyledButton onPress={this.props.onCorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: '#66a266' }}>
           <ButtonText>Correct</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.props.onIncorrectAnswer} activeOpacity={0.8}>
+        <StyledButton onPress={this.props.onIncorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: '#FF0000' }}>
           <ButtonText>Incorrect</ButtonText>
         </StyledButton>
       </View>
@@ -101,15 +102,17 @@ class QuizCard extends React.Component {
   render() {
     return (
       <StyledView>
-        <StyledNumberText>{ `${this.props.cardIndex}/${this.props.cards.length}` }</StyledNumberText>
-        <Animated.View style={this.renderStyles('front')}>
-        <Text>{this.props.question}</Text>
-        { this.renderButtonContainer() }
-        </Animated.View>
-        <Animated.View style={this.renderStyles('back')}>
-          <Text>{this.props.answer}</Text>
+        <SpaceView>
+          <StyledNumberText>{ `${this.props.cardIndex}/${this.props.cards.length}` }</StyledNumberText>
+          <Animated.View style={this.renderStyles('front')}>
+          <StyledHeader>{this.props.question}</StyledHeader>
           { this.renderButtonContainer() }
-        </Animated.View>
+          </Animated.View>
+          <Animated.View style={this.renderStyles('back')}>
+            <StyledHeader>{this.props.answer}</StyledHeader>
+            { this.renderButtonContainer() }
+          </Animated.View>
+        </SpaceView>
       </StyledView>
     );
   }
