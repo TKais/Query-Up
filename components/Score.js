@@ -16,10 +16,10 @@ class Score extends React.Component {
       <StyledView>
         <Text>Correct: {this.props.numberCorrect}</Text>
         <Text>Incorrect: {this.props.numberIncorrect}</Text>
-        <StyledButton onPress={this.startQuiz}>
+        <StyledButton onPress={this.startQuiz} activeOpacity={0.8}>
           <ButtonText>Restart Quiz</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.routeToDeck}>
+        <StyledButton onPress={this.routeToDeck} activeOpacity={0.8}>
           <ButtonText>Back to Deck</ButtonText>
         </StyledButton>
       </StyledView>
