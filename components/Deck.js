@@ -7,6 +7,7 @@ import { StyledHeader } from '../assets/styles/deck-styles';
 import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
 import { deleteDeck } from '../actions/decks';
 import { removeAsyncDeck } from '../utils/storage';
+import { colorPalette } from '../utils/styles';
 
 class Deck extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -45,13 +46,13 @@ class Deck extends React.Component {
       <StyledView>
         <StyledHeader>{this.props.navigation.state.params.deckName}</StyledHeader>
         <Text>{ this.generateCardLengthText() }</Text>
-        <StyledButton onPress={this.handleAddCardPress} theme={{ buttonColor: '#71C9C8' }}>
+        <StyledButton onPress={this.handleAddCardPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.darkGreen }}>
           <ButtonText>Add Card</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.handleStartQuizPress} theme={{ buttonColor: '#FED0B7' }}>
+        <StyledButton onPress={this.handleStartQuizPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
           <ButtonText>Start Quiz</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.handleDeleteDeckPress} theme={{ buttonColor: '#FDB2B3' }}>
+        <StyledButton onPress={this.handleDeleteDeckPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.coral }}>
           <ButtonText>Delete Deck</ButtonText>
         </StyledButton>
       </StyledView>
