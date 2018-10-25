@@ -6,7 +6,8 @@ export const StyledView = styled.View`
 `
 
 export const StyledButton = styled.TouchableOpacity`
-  border-color: #717171;
+  border-color: ${props => props.theme.buttonColor};
+  background-color: ${props => props.theme.buttonColor};
   border-width: 1;
   padding-top: 10;
   padding-bottom: 10;
