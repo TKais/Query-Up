@@ -32,3 +32,7 @@ export const StyledInput = styled.TextInput`
   align-self: center;
   background-color: #FFFFFF;
 `
+
+export const SpaceView = styled.View`
+  margin-top: 40;
+`
