@@ -45,13 +45,13 @@ class Deck extends React.Component {
       <StyledView>
         <StyledHeader>{this.props.navigation.state.params.deckName}</StyledHeader>
         <Text>{ this.generateCardLengthText() }</Text>
-        <StyledButton onPress={this.handleAddCardPress}>
+        <StyledButton onPress={this.handleAddCardPress} theme={{ buttonColor: '#71C9C8' }}>
           <ButtonText>Add Card</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.handleStartQuizPress}>
+        <StyledButton onPress={this.handleStartQuizPress} theme={{ buttonColor: '#FED0B7' }}>
           <ButtonText>Start Quiz</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.handleDeleteDeckPress}>
+        <StyledButton onPress={this.handleDeleteDeckPress} theme={{ buttonColor: '#FDB2B3' }}>
           <ButtonText>Delete Deck</ButtonText>
         </StyledButton>
       </StyledView>
