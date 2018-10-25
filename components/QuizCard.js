@@ -46,13 +46,13 @@ class QuizCard extends React.Component {
   renderButtonContainer = () => {
     return (
       <View>
-        <StyledButton onPress={this.showQuestionAndAnswer}>
+        <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8}>
           <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.props.onCorrectAnswer}>
+        <StyledButton onPress={this.props.onCorrectAnswer} activeOpacity={0.8}>
           <ButtonText>Correct</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.props.onIncorrectAnswer}>
+        <StyledButton onPress={this.props.onIncorrectAnswer} activeOpacity={0.8}>
           <ButtonText>Incorrect</ButtonText>
         </StyledButton>
       </View>
