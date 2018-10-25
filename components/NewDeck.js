@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Keyboard, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
-import { StyledView, StyledButton, ButtonText, StyledInput, SpaceView } from '../assets/styles/common';
+import { StyledView, StyledButton, ButtonText, StyledInput, SpaceView, StyledHeader } from '../assets/styles/common';
 import { createDeck } from '../actions/decks';
 import { NavigationActions } from 'react-navigation';
 import { addAsyncDeck } from '../utils/storage';
@@ -46,7 +46,7 @@ class NewDeck extends React.Component {
 		return (
 			<StyledView>
 			  <SpaceView>
-			    <Text>What is the title of your new deck?</Text>
+			    <StyledHeader theme={{headerColor: '#FDF6EE'}}>What is the title of your new deck?</StyledHeader>
 			    <StyledInput underlineColorAndroid="transparent" value={ this.state.textValue } onChangeText={ this.handleChange } />
 			    <StyledButton onPress={this.handlePress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
 			      <ButtonText>Create Deck</ButtonText>

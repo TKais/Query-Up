@@ -5,6 +5,13 @@ export const StyledView = styled.View`
   flex: 1;
 `
 
+export const StyledHeader = styled.Text`
+  font-size: 20;
+  align-self: center;
+  margin-bottom: 25;
+  color: ${props => props.theme.headerColor || '#FFFFFF'};
+`
+
 export const StyledButton = styled.TouchableOpacity`
   border-color: ${props => props.theme.buttonColor};
   background-color: ${props => props.theme.buttonColor};
@@ -22,15 +29,17 @@ export const StyledButton = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   text-align: center;
   color: #FFFFFF;
+  text-shadow: ${props => props.theme.textShadow || 'none'};
 `
 
 export const StyledInput = styled.TextInput`
   height: 40; 
-  border-color: #717171;
+  border-color: #FFFFFF;
   border-width: 1;
   width: 75%;
   align-self: center;
   background-color: #FFFFFF;
+  margin-bottom: 15;
 `
 
 export const SpaceView = styled.View`
