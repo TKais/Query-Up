@@ -29,7 +29,6 @@ export const StyledButton = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   text-align: center;
   color: #FFFFFF;
-  text-shadow: ${props => props.theme.textShadow || 'none'};
 `
 
 export const StyledInput = styled.TextInput`
