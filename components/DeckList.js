@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { getDecks } from '../actions/decks';
-import { StyledView } from '../assets/styles/common';
+import { StyledView, SpaceView } from '../assets/styles/common';
 import SingleDeck from './SingleDeck';
 import { getAsyncDecks } from '../utils/storage';
 
@@ -20,7 +20,7 @@ class DeckList extends React.Component {
 		return (
 			<FlatList
 				data={ deckArray }
-				renderItem={ ({ item, index }) => <SingleDeck title={item.title} cardLength={item.cards.length} navigation={this.props.navigation} deckIndex={index} /> }
+				renderItem={ ({ item, index }) => <SingleDeck title={item.title} cardLength={item.cards.length} navigation={this.props.navigation} deckIndex={index} topMargin={index === 0 ? '25' : null} /> }
 				showsVerticalScrollIndicator={false}
 				keyExtractor={ item => item.title }
 			/>
@@ -38,7 +38,9 @@ class DeckList extends React.Component {
 	render() {
 		return (
 			<StyledView>
-		    { Object.keys(this.props.decks).length > 0 ? this.generateDeckList() : this.generateErrorMessage() }
+			  <SpaceView>
+			    { Object.keys(this.props.decks).length > 0 ? this.generateDeckList() : this.generateErrorMessage() }
+		    </SpaceView>
 			</StyledView>
 		);
 	}
