@@ -17,7 +17,7 @@ export const StyledTouchDeck = styled.TouchableOpacity`
   shadow-color: #717171;
   shadow-opacity: .25;
   shadow-radius: 10;
-  margin-top: ${props => props.theme.topMargin || '-5'};
+  margin-top: ${props => props.theme.topMargin || '-20'};
   padding-bottom: 35;
   padding-top: 35;
   width: 75%;
