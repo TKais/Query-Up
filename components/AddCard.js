@@ -3,7 +3,8 @@ import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { createCard } from '../actions/decks';
 import { addAsyncCard } from '../utils/storage';
-import { StyledView, StyledButton, ButtonText, StyledInput } from '../assets/styles/common';
+import { colorPalette } from '../utils/styles';
+import { StyledView, StyledButton, ButtonText, StyledInput, StyledHeader, SpaceView } from '../assets/styles/common';
 
 class AddCard extends React.Component {
   state = {
@@ -35,12 +36,14 @@ class AddCard extends React.Component {
   render() {
     return (
       <StyledView>
-        <Text>Add Card</Text>
-        <StyledInput underlineColorAndroid="transparent" placeholder="Question" value={this.state.cardQuestion} onChangeText={ this.handleQuestionChange } />
-        <StyledInput underlineColorAndroid="transparent" placeholder="Answer" value={this.state.cardAnswer} onChangeText={ this.handleAnswerChange } />
-        <StyledButton onPress={this.handleAddCard} activeOpacity={0.8}>
-          <ButtonText>Submit</ButtonText>
-        </StyledButton>
+        <SpaceView>
+          <StyledHeader theme={{headerColor: '#FDF6EE'}}>Add Card</StyledHeader>
+          <StyledInput underlineColorAndroid="transparent" placeholder="Question" value={this.state.cardQuestion} onChangeText={ this.handleQuestionChange } />
+          <StyledInput underlineColorAndroid="transparent" placeholder="Answer" value={this.state.cardAnswer} onChangeText={ this.handleAnswerChange } />
+          <StyledButton onPress={this.handleAddCard} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
+            <ButtonText>Submit</ButtonText>
+          </StyledButton>
+        </SpaceView>
       </StyledView>
     );
   }
