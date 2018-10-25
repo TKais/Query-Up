@@ -12,7 +12,7 @@ class SingleDeck extends React.Component {
   render() {
     return (
       <StyledWrapper>
-        <StyledTouchDeck theme={{ cardColor: setDeckColors(this.props.deckIndex) }} key={this.props.title} onPress={this.handlePress}>
+        <StyledTouchDeck theme={{ cardColor: setDeckColors(this.props.deckIndex), topMargin: this.props.topMargin }} key={this.props.title} onPress={this.handlePress} activeOpacity={0.8}>
           <ButtonText>{this.props.title}</ButtonText>
           <ButtonText>{ `${this.props.cardLength} ${this.props.cardLength === 1 ? 'card' : 'cards'}` }</ButtonText>
         </StyledTouchDeck>
