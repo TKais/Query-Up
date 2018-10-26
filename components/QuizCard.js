@@ -51,10 +51,10 @@ class QuizCard extends React.Component {
         <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
           <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
         </StyledButton>
-        <StyledButton onPress={this.props.onCorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: '#66a266' }}>
+        <StyledButton onPress={this.props.onCorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: additionalColors.correctAnswer }}>
           <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark-circle' : 'md-checkmark-circle'} size={30} color={additionalColors.answerIcons} />
         </StyledButton>
-        <StyledButton onPress={this.props.onIncorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: '#FF0000' }}>
+        <StyledButton onPress={this.props.onIncorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: additionalColors.incorrectAnswer }}>
           <Ionicons name={Platform.OS === 'ios' ? 'ios-close-circle' : 'md-close-circle'} size={30} color={additionalColors.answerIcons} />
         </StyledButton>
       </View>
