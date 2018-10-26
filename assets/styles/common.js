@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { additionalColors } from '../../utils/styles';
 
 export const StyledView = styled.View`
   background-color: #AAE0DC;
@@ -10,7 +11,7 @@ export const StyledHeader = styled.Text`
   align-self: center;
   margin-bottom: ${props => props.theme.marginBottom || 0};
   margin-top: ${props => props.theme.marginTop || 0};
-  color: ${props => props.theme.headerColor || '#FFFFFF'};
+  color: ${props => additionalColors.headers};
 `
 
 export const StyledButton = styled.TouchableOpacity`
@@ -48,7 +49,6 @@ export const SpaceView = styled.View`
 
 export const StyledSubHeader = styled.Text`
   font-size: 16;
-  color: ${props => props.theme.subheaderColor};
   align-self: center;
-  margin-bottom: 25;
+  color: ${props => additionalColors.headers};
 `
