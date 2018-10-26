@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, Animated, StyleSheet, Dimensions, Platform } from 'react-native';
 import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView } from '../assets/styles/common';
 import { StyledNumberText } from '../assets/styles/quiz-card-styles';
-import { colorPalette } from '../utils/styles';
+import { colorPalette, additionalColors } from '../utils/styles';
+import { Ionicons } from '@expo/vector-icons';
 
 class QuizCard extends React.Component {
   state = {
@@ -52,9 +53,11 @@ class QuizCard extends React.Component {
         </StyledButton>
         <StyledButton onPress={this.props.onCorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: '#66a266' }}>
           <ButtonText>Correct</ButtonText>
+          <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark-circle' : 'md-checkmark-circle'} size={30} color={additionalColors.answerIcons} />
         </StyledButton>
         <StyledButton onPress={this.props.onIncorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: '#FF0000' }}>
           <ButtonText>Incorrect</ButtonText>
+          <Ionicons name={Platform.OS === 'ios' ? 'ios-close-circle' : 'md-close-circle'} size={30} color={additionalColors.answerIcons} />
         </StyledButton>
       </View>
     );
