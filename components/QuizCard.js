@@ -52,11 +52,9 @@ class QuizCard extends React.Component {
           <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
         </StyledButton>
         <StyledButton onPress={this.props.onCorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: '#66a266' }}>
-          <ButtonText>Correct</ButtonText>
           <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark-circle' : 'md-checkmark-circle'} size={30} color={additionalColors.answerIcons} />
         </StyledButton>
         <StyledButton onPress={this.props.onIncorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: '#FF0000' }}>
-          <ButtonText>Incorrect</ButtonText>
           <Ionicons name={Platform.OS === 'ios' ? 'ios-close-circle' : 'md-close-circle'} size={30} color={additionalColors.answerIcons} />
         </StyledButton>
       </View>
@@ -108,11 +106,11 @@ class QuizCard extends React.Component {
         <SpaceView>
           <StyledNumberText>{ `${this.props.cardIndex}/${this.props.cards.length}` }</StyledNumberText>
           <Animated.View style={this.renderStyles('front')}>
-          <StyledHeader>{this.props.question}</StyledHeader>
+          <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.question}</StyledHeader>
           { this.renderButtonContainer() }
           </Animated.View>
           <Animated.View style={this.renderStyles('back')}>
-            <StyledHeader>{this.props.answer}</StyledHeader>
+            <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.answer}</StyledHeader>
             { this.renderButtonContainer() }
           </Animated.View>
         </SpaceView>

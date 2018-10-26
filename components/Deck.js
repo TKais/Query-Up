@@ -3,7 +3,7 @@ import { View, Text, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { HeaderBackButton, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
-import { StyledView, StyledButton, ButtonText, StyledHeader, StyledSubHeader } from '../assets/styles/common';
+import { StyledView, StyledButton, ButtonText, StyledHeader, StyledSubHeader, SpaceView } from '../assets/styles/common';
 import { deleteDeck } from '../actions/decks';
 import { removeAsyncDeck } from '../utils/storage';
 import { colorPalette, additionalColors } from '../utils/styles';
@@ -43,17 +43,19 @@ class Deck extends React.Component {
   render() {
     return (
       <StyledView>
-        <StyledHeader theme={{headerColor: additionalColors.headers, marginTop: 15}}>{this.props.navigation.state.params.deckName}</StyledHeader>
-        <StyledSubHeader theme={{subheaderColor: additionalColors.headers}}>{ this.generateCardLengthText() }</StyledSubHeader>
-        <StyledButton onPress={this.handleAddCardPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.darkGreen }}>
-          <ButtonText>Add Card</ButtonText>
-        </StyledButton>
-        <StyledButton onPress={this.handleStartQuizPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
-          <ButtonText>Start Quiz</ButtonText>
-        </StyledButton>
-        <StyledButton onPress={this.handleDeleteDeckPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.coral }}>
-          <ButtonText>Delete Deck</ButtonText>
-        </StyledButton>
+        <SpaceView>
+          <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.navigation.state.params.deckName}</StyledHeader>
+          <StyledSubHeader theme={{subheaderColor: additionalColors.headers}}>{ this.generateCardLengthText() }</StyledSubHeader>
+          <StyledButton onPress={this.handleAddCardPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.darkGreen }}>
+            <ButtonText>Add Card</ButtonText>
+          </StyledButton>
+          <StyledButton onPress={this.handleStartQuizPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
+            <ButtonText>Start Quiz</ButtonText>
+          </StyledButton>
+          <StyledButton onPress={this.handleDeleteDeckPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.coral }}>
+            <ButtonText>Delete Deck</ButtonText>
+          </StyledButton>
+        </SpaceView>
       </StyledView>
     );
   }
