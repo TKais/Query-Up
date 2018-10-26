@@ -6,6 +6,10 @@ export const colorPalette = {
   lightYellow: '#F8EEBA',
 };
 
+export const additionalColors = {
+  headers: '#FDF6EE'
+};
+
 export const setDeckColors = (deckIndex) => {
   const colors = Object.values(colorPalette);
   if(deckIndex < colors.length) {
