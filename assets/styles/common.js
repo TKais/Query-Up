@@ -8,7 +8,7 @@ export const StyledView = styled.View`
 export const StyledHeader = styled.Text`
   font-size: 20;
   align-self: center;
-  margin-bottom: 25;
+  margin-bottom: ${props => props.theme.marginBottom || 0};
   margin-top: ${props => props.theme.marginTop || 0};
   color: ${props => props.theme.headerColor || '#FFFFFF'};
 `
@@ -44,4 +44,11 @@ export const StyledInput = styled.TextInput`
 
 export const SpaceView = styled.View`
   margin-top: 40;
+`
+
+export const StyledSubHeader = styled.Text`
+  font-size: 16;
+  color: ${props => props.theme.subheaderColor};
+  align-self: center;
+  margin-bottom: 25;
 `
