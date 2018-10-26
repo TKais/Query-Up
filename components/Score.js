@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
+import { StyledView, StyledButton, ButtonText, StyledHeader } from '../assets/styles/common';
 import { colorPalette } from '../utils/styles';
 
 class Score extends React.Component {
@@ -15,8 +15,8 @@ class Score extends React.Component {
   render() {
     return (
       <StyledView>
-        <Text>Correct: {this.props.numberCorrect}</Text>
-        <Text>Incorrect: {this.props.numberIncorrect}</Text>
+        <StyledHeader>Correct: {this.props.numberCorrect}</StyledHeader>
+        <StyledHeader>Incorrect: {this.props.numberIncorrect}</StyledHeader>
         <StyledButton onPress={this.startQuiz} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
           <ButtonText>Restart Quiz</ButtonText>
         </StyledButton>

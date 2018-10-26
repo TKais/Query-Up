@@ -7,7 +7,10 @@ export const colorPalette = {
 };
 
 export const additionalColors = {
-  headers: '#FDF6EE'
+  headers: '#FDF6EE',
+  correctAnswer: '',
+  answerIcons: '#FFFFFF',
+  incorrectAnswer: '',
 };
 
 export const setDeckColors = (deckIndex) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'
-import { StyledView } from '../assets/styles/common';
+import { StyledView, StyledSubHeader } from '../assets/styles/common';
 import { connect } from 'react-redux';
 import QuizCard from './QuizCard';
 import Score from './Score';
@@ -71,9 +71,9 @@ class Quiz extends React.Component {
 
   showError = (deckName) => {
     return (
-      <Text>
+      <StyledSubHeader>
         { `Sorry, you cannot take a quiz because there are no cards in deck ${deckName}` }
-      </Text>
+      </StyledSubHeader>
     );
   }
 
