@@ -3,11 +3,10 @@ import { View, Text, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { HeaderBackButton, createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
-import { StyledHeader } from '../assets/styles/deck-styles';
-import { StyledView, StyledButton, ButtonText } from '../assets/styles/common';
+import { StyledView, StyledButton, ButtonText, StyledHeader } from '../assets/styles/common';
 import { deleteDeck } from '../actions/decks';
 import { removeAsyncDeck } from '../utils/storage';
-import { colorPalette } from '../utils/styles';
+import { colorPalette, additionalColors } from '../utils/styles';
 
 class Deck extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -44,7 +43,7 @@ class Deck extends React.Component {
   render() {
     return (
       <StyledView>
-        <StyledHeader>{this.props.navigation.state.params.deckName}</StyledHeader>
+        <StyledHeader theme={{headerColor: additionalColors.headers, marginTop: 15}}>{this.props.navigation.state.params.deckName}</StyledHeader>
         <Text>{ this.generateCardLengthText() }</Text>
         <StyledButton onPress={this.handleAddCardPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.darkGreen }}>
           <ButtonText>Add Card</ButtonText>
