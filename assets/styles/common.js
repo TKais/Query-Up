@@ -6,7 +6,7 @@ export const StyledView = styled.View`
 `
 
 export const StyledHeader = styled.Text`
-  font-size: 20;
+  font-size: 24;
   align-self: center;
   margin-bottom: ${props => props.theme.marginBottom || 0};
   margin-top: ${props => props.theme.marginTop || 0};
