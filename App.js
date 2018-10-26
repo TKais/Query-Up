@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Platform } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -25,7 +25,7 @@ const Tabs = createBottomTabNavigator({
         let routeIcon;
 
         if( routeName === 'Decks' ) {
-          routeIcon = <Ionicons name="ios-albums" size={30} color={tintColor} />;
+          routeIcon = <Ionicons name={Platform.OS === 'ios' ? 'ios-albums' : 'md-albums'} size={30} color={tintColor} />;
         } else if ( routeName === 'New Deck' ) {
           routeIcon = <FontAwesome name="plus-square" size={30} color={tintColor} />;
         }

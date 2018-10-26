@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Animated, StyleSheet, Dimensions, Platform } from 'react-native';
 import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView } from '../assets/styles/common';
-import { StyledNumberText, StyledScoreButtons } from '../assets/styles/quiz-card-styles';
+import { StyledNumberText, StyledScoreButtons, StyledScoreButtonWrapper } from '../assets/styles/quiz-card-styles';
 import { colorPalette, additionalColors } from '../utils/styles';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -51,12 +51,14 @@ class QuizCard extends React.Component {
         <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
           <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
         </StyledButton>
-        <StyledScoreButtons onPress={this.props.onCorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: additionalColors.correctAnswer, paddingTop: 0,  }}>
-          <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark-circle' : 'md-checkmark-circle'} size={55} color={additionalColors.answerIcons} />
-        </StyledScoreButtons>
-        <StyledScoreButtons onPress={this.props.onIncorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: additionalColors.incorrectAnswer }}>
-          <Ionicons name={Platform.OS === 'ios' ? 'ios-close-circle' : 'md-close-circle'} size={55} color={additionalColors.answerIcons} />
-        </StyledScoreButtons>
+        <StyledScoreButtonWrapper>
+          <StyledScoreButtons onPress={this.props.onCorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: additionalColors.correctAnswer, paddingTop: 0,  }}>
+            <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark-circle' : 'md-checkmark-circle'} size={65} color={additionalColors.answerIcons} />
+          </StyledScoreButtons>
+          <StyledScoreButtons onPress={this.props.onIncorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: additionalColors.incorrectAnswer }}>
+            <Ionicons name={Platform.OS === 'ios' ? 'ios-close-circle' : 'md-close-circle'} size={65} color={additionalColors.answerIcons} />
+          </StyledScoreButtons>
+        </StyledScoreButtonWrapper>
       </View>
     );
   }
