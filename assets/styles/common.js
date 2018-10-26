@@ -9,6 +9,7 @@ export const StyledHeader = styled.Text`
   font-size: 20;
   align-self: center;
   margin-bottom: 25;
+  margin-top: ${props => props.theme.marginTop || 0};
   color: ${props => props.theme.headerColor || '#FFFFFF'};
 `
 
