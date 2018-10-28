@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { getDecks } from '../actions/decks';
-import { StyledView, SpaceView } from '../assets/styles/common';
+import { StyledView, SpaceView, StyledHeader } from '../assets/styles/common';
 import SingleDeck from './SingleDeck';
 import { getAsyncDecks } from '../utils/storage';
 
@@ -29,9 +29,9 @@ class DeckList extends React.Component {
 
 	generateErrorMessage = () => {
 		return (
-			<Text>
-			    You haven't created any decks yet.
-			</Text>
+			<StyledHeader>
+			    You haven't created any decks yet. Select the New Deck tab below to get started
+			</StyledHeader>
 		)
 	}
 
