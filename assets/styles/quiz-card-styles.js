@@ -6,6 +6,7 @@ export const StyledNumberText = styled.Text`
   top: 0;
   right: 0;
   color: ${additionalColors.headers}
+  margin-right: 10;
 `
 
 export const StyledScoreButtonWrapper = styled.View`
@@ -15,19 +16,7 @@ export const StyledScoreButtonWrapper = styled.View`
 `
 
 export const StyledScoreButtons = styled.TouchableOpacity`
-  border-color: ${props => props.theme.buttonColor};
-  background-color: ${props => props.theme.buttonColor};
-  border-width: 0;
-  padding-top: -10;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  width: auto;
-  height: auto;
-  align-self: center;
-  margin-top: 10;
-  border-radius: 10;
-  margin-right: 20;
   margin-left: 20;
+  margin-right: 20;
 `
 
