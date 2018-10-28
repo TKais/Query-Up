@@ -47,18 +47,25 @@ class QuizCard extends React.Component {
 
   renderButtonContainer = () => {
     return (
+      <StyledScoreButtonWrapper>
+        <StyledScoreButtons onPress={this.props.onCorrectAnswer} activeOpacity={0.8}>
+          <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark'} size={90} color={additionalColors.correctAnswer} />
+          <Text>Correct</Text>
+        </StyledScoreButtons>
+        <StyledScoreButtons onPress={this.props.onIncorrectAnswer} activeOpacity={0.8}>
+          <Ionicons name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} size={90} color={additionalColors.incorrectAnswer} />
+          <Text>Incorrect</Text>
+        </StyledScoreButtons>
+      </StyledScoreButtonWrapper>
+    );
+  }
+
+  renderAnswerButton = () => {
+    return (
       <View>
         <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
           <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
         </StyledButton>
-        <StyledScoreButtonWrapper>
-          <StyledScoreButtons onPress={this.props.onCorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: additionalColors.correctAnswer, paddingTop: 0,  }}>
-            <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark-circle' : 'md-checkmark-circle'} size={65} color={additionalColors.answerIcons} />
-          </StyledScoreButtons>
-          <StyledScoreButtons onPress={this.props.onIncorrectAnswer} activeOpacity={0.8} theme={{ buttonColor: additionalColors.incorrectAnswer }}>
-            <Ionicons name={Platform.OS === 'ios' ? 'ios-close-circle' : 'md-close-circle'} size={65} color={additionalColors.answerIcons} />
-          </StyledScoreButtons>
-        </StyledScoreButtonWrapper>
       </View>
     );
   }
@@ -66,7 +73,7 @@ class QuizCard extends React.Component {
   renderStyles = (side) => {
     const frontAnimatedStyle = {
       transform: [
-        { rotateY: this.frontInterpolate}
+        { rotateY: this.frontInterpolate }
       ]
     }
     const backAnimatedStyle = {
@@ -108,13 +115,14 @@ class QuizCard extends React.Component {
         <SpaceView>
           <StyledNumberText>{ `${this.props.cardIndex}/${this.props.cards.length}` }</StyledNumberText>
           <Animated.View style={this.renderStyles('front')}>
-          <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.question}</StyledHeader>
-          { this.renderButtonContainer() }
+            <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.question}</StyledHeader>
+            { this.renderAnswerButton() }
           </Animated.View>
           <Animated.View style={this.renderStyles('back')}>
             <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.answer}</StyledHeader>
-            { this.renderButtonContainer() }
+            { this.renderAnswerButton() }
           </Animated.View>
+          { this.renderButtonContainer() }
         </SpaceView>
       </StyledView>
     );
