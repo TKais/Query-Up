@@ -46,7 +46,7 @@ class NewDeck extends React.Component {
 		return (
 			<StyledView>
 			  <SpaceView>
-			    <StyledHeader theme={{headerColor: additionalColors.headers}}>What is the title of your new deck?</StyledHeader>
+			    <StyledHeader theme={{headerColor: additionalColors.headers, marginBottom: 25}}>What is the title of your new deck?</StyledHeader>
 			    <StyledInput underlineColorAndroid="transparent" value={ this.state.textValue } onChangeText={ this.handleChange } />
 			    <StyledButton onPress={this.handlePress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
 			      <ButtonText>Create Deck</ButtonText>
