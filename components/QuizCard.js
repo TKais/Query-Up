@@ -31,6 +31,9 @@ class QuizCard extends React.Component {
 
   handleAnswerPress = (isCorrect) => {
     this.setState({ questionAnswered: true }, this.props.onHandleAnswer(isCorrect));
+    if(this.state.answerIsVisible) {
+      this.showQuestionAndAnswer();
+    }
   }
 
   handleAnimation = () => {
