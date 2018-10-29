@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { StyledTouchDeck, StyledWrapper } from '../assets/styles/single-deck-styles';
 import { StyledView, ButtonText } from '../assets/styles/common';
 import { setDeckColors } from '../utils/styles';

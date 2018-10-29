@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Animated, StyleSheet, Dimensions, Platform } from 'react-native';
+import { Animated, StyleSheet, Dimensions, Platform } from 'react-native';
 import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView, StyledSubHeader } from '../assets/styles/common';
 import { StyledNumberText, StyledScoreButtons, StyledScoreButtonWrapper } from '../assets/styles/quiz-card-styles';
 import { colorPalette, additionalColors } from '../utils/styles';

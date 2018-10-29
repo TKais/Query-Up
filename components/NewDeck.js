@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Keyboard, AsyncStorage } from 'react-native';
+import { Keyboard, AsyncStorage } from 'react-native';
 import { connect } from 'react-redux';
 import { StyledView, StyledButton, ButtonText, StyledInput, SpaceView, StyledHeader } from '../assets/styles/common';
 import { createDeck } from '../actions/decks';
