@@ -71,20 +71,20 @@ class Quiz extends React.Component {
 
   showError = (deckName) => {
     return (
-      <StyledMessageWrapper>
-        <StyledHeader>
-          { `Sorry, you cannot take a quiz because there are no cards in deck ${deckName}.` }
-        </StyledHeader>
-      </StyledMessageWrapper>
+      <SpaceView>
+        <StyledMessageWrapper>
+          <StyledHeader>
+            { `Sorry, you cannot take a quiz because there are no cards in deck ${deckName}.` }
+          </StyledHeader>
+        </StyledMessageWrapper>
+      </SpaceView>
     );
   }
 
   render() {
     return (
       <StyledView>
-        <SpaceView>
-          {this.generateQuiz()}
-        </SpaceView>
+        {this.generateQuiz()}
       </StyledView>
     );
   }
