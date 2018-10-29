@@ -55,11 +55,11 @@ class QuizCard extends React.Component {
     return (
       <StyledScoreButtonWrapper>
         <StyledScoreButtons onPress={this.handleAnswerPress} activeOpacity={0.8}>
-          <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark'} size={Platform.OS === 'ios' ? 125 : 90} color={additionalColors.correctAnswer} />
+          <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark'} size={Platform.OS === 'ios' ? 100 : 90} color={additionalColors.correctAnswer} />
           <StyledSubHeader>Correct</StyledSubHeader>
         </StyledScoreButtons>
         <StyledScoreButtons onPress={this.handleAnswerPress} activeOpacity={0.8}>
-          <Ionicons name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} size={Platform.OS === 'ios' ? 125 : 90} color={additionalColors.incorrectAnswer} />
+          <Ionicons name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} size={Platform.OS === 'ios' ? 100 : 90} color={additionalColors.incorrectAnswer} />
           <StyledSubHeader>Incorrect</StyledSubHeader>
         </StyledScoreButtons>
       </StyledScoreButtonWrapper>
