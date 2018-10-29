@@ -4,6 +4,7 @@ import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView, StyledSu
 import { StyledNumberText, StyledScoreButtons, StyledScoreButtonWrapper } from '../assets/styles/quiz-card-styles';
 import { colorPalette, additionalColors } from '../utils/styles';
 import { Ionicons } from '@expo/vector-icons';
+import * as Animatable from 'react-native-animatable';
 
 class QuizCard extends React.Component {
   state = {
@@ -29,8 +30,15 @@ class QuizCard extends React.Component {
   }
 
   handleAnswerPress = (isCorrect) => {
-    this.setState({ questionAnswered: true }, );
-    this.props.onHandleAnswer(true);
+    this.setState({ questionAnswered: true }, this.props.onHandleAnswer(true));
+  }
+
+  handleAnimation = () => {
+    if(this.state.questionAnswered) {
+      return 'lightSpeedIn';
+    } else {
+      return '';
+    }
   }
 
   showQuestionAndAnswer = () => {
@@ -116,18 +124,20 @@ class QuizCard extends React.Component {
   render() {
     return (
       <StyledView>
-        <SpaceView>
-          <StyledNumberText>{ `${this.props.cardIndex}/${this.props.cards.length}` }</StyledNumberText>
-          <Animated.View style={this.renderStyles('front')}>
-            <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.question}</StyledHeader>
-            { this.renderAnswerButton() }
-          </Animated.View>
-          <Animated.View style={this.renderStyles('back')}>
-            <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.answer}</StyledHeader>
-            { this.renderAnswerButton() }
-          </Animated.View>
-          { this.renderButtonContainer() }
-        </SpaceView>
+        <Animatable.View animation={this.handleAnimation()}>
+          <SpaceView>
+            <StyledNumberText>{ `${this.props.cardIndex}/${this.props.cards.length}` }</StyledNumberText>
+            <Animated.View style={this.renderStyles('front')}>
+              <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.question}</StyledHeader>
+              { this.renderAnswerButton() }
+            </Animated.View>
+            <Animated.View style={this.renderStyles('back')}>
+              <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.answer}</StyledHeader>
+              { this.renderAnswerButton() }
+            </Animated.View>
+            { this.renderButtonContainer() }
+          </SpaceView>
+        </Animatable.View>
       </StyledView>
     );
   }
