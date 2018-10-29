@@ -3,8 +3,8 @@ A mobile flashcard app for iOS and Android. Built using React Native, Redux, and
 
 ## Starting the Application
 
-* Run `yarn install` or `npm install`
-* Run `yarn start` or `npm start`
+* Run `yarn install`
+* Run `yarn start`
 * Scan the QR code in the terminal with the Expo app (Android) or the Camera app (iOS)
 * Press a for Android emulator, or i for iOS simulator
 * Press e to send a link to your phone with email/SMS
