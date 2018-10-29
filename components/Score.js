@@ -16,7 +16,6 @@ class Score extends React.Component {
     return (
       <StyledView>
         <StyledHeader>Correct: {this.props.numberCorrect}</StyledHeader>
-        <StyledHeader>Incorrect: {this.props.numberIncorrect}</StyledHeader>
         <StyledButton onPress={this.startQuiz} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
           <ButtonText>Restart Quiz</ButtonText>
         </StyledButton>

@@ -10,7 +10,6 @@ class Quiz extends React.Component {
   state = {
     cardIndex: 0,
     correct: 0,
-    incorrect: 0
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -29,22 +28,18 @@ class Quiz extends React.Component {
     return decks[deckName].cards.length > 0 ? this.createCard(decks[deckName].cards) : this.showError(deckName);
   }
 
-  handleCorrectAnswer = () => {
-    const correctAnswer = this.state.correct += 1;
+  handleAnswer = (isCorrect) => {
     const newCardIndex = this.state.cardIndex += 1;
-    this.setState({
-      cardIndex: newCardIndex,
-      correct: correctAnswer,
-    });
-  }
-
-  handleIncorrectAnswer = () => {
-    const incorrectAnswer = this.state.incorrect += 1;
-    const newCardIndex = this.state.cardIndex += 1;
-    this.setState({
-      cardIndex: newCardIndex,
-      incorrect: incorrectAnswer,
-    });
+    if(isCorrect) {
+      this.setState({
+        cardIndex: newCardIndex,
+        correct: this.state.correct += 1,
+      });
+    } else {
+      this.setState({
+        cardIndex: newCardIndex,
+      });
+    }
   }
 
   createCard = (cards) => {
@@ -52,11 +47,11 @@ class Quiz extends React.Component {
 
     if (cardIndex <= cards.length - 1) {
       return (
-        <QuizCard cards={cards} cardIndex={cardIndex + 1} question={cards[cardIndex].Question} answer={cards[cardIndex].Answer} onCorrectAnswer={this.handleCorrectAnswer} onIncorrectAnswer={this.handleIncorrectAnswer} />
+        <QuizCard cards={cards} cardIndex={cardIndex + 1} question={cards[cardIndex].Question} answer={cards[cardIndex].Answer} onHandleAnswer={this.handleAnswer} />
       );
     } else {
       return (
-        <Score numberCorrect={this.state.correct} numberIncorrect={this.state.incorrect} navigation={this.props.navigation} onResetQuiz={this.resetQuiz} />
+        <Score numberCorrect={this.state.correct} navigation={this.props.navigation} onResetQuiz={this.resetQuiz} />
       );
     }
   }
@@ -65,7 +60,6 @@ class Quiz extends React.Component {
     this.setState({ 
       cardIndex: 0,
       correct: 0,
-      incorrect: 0
     });
   }
 
