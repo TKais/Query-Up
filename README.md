@@ -19,6 +19,7 @@ This app uses the following technologies:
 * React Navigation
 * AsyncStorage
 * ES6
+* react-native-animatable library
 
 ## App Features
 
