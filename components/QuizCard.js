@@ -34,14 +34,12 @@ class QuizCard extends React.Component {
     if(this.state.answerIsVisible) {
       this.showQuestionAndAnswer();
     }
+
+    this.animatedViewRef && this.animatedViewRef.startAnimation();
   }
 
   handleAnimation = () => {
-    if(this.state.questionAnswered) {
-      return 'lightSpeedIn';
-    } else {
-      return '';
-    }
+    return this.state.questionAnswered ? 'lightSpeedIn' : '';
   }
 
   showQuestionAndAnswer = () => {
@@ -127,7 +125,7 @@ class QuizCard extends React.Component {
   render() {
     return (
       <StyledView>
-        <Animatable.View animation={this.handleAnimation()}>
+        <Animatable.View animation={this.handleAnimation()} ref={node => this.animatedViewRef = node}>
           <SpaceView>
             <StyledNumberText>{ `${this.props.cardIndex}/${this.props.cards.length}` }</StyledNumberText>
             <Animated.View style={this.renderStyles('front')}>
