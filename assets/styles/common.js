@@ -17,6 +17,7 @@ export const StyledHeader = styled.Text`
 export const StyledButton = styled.TouchableOpacity`
   border-color: ${props => props.theme.buttonColor};
   background-color: ${props => props.theme.buttonColor};
+  margin-top: ${props => props.theme.marginTop || 10};
   border-width: 1;
   padding-top: 10;
   padding-bottom: 10;
@@ -24,8 +25,12 @@ export const StyledButton = styled.TouchableOpacity`
   padding-right: 10;
   width: 50%;
   align-self: center;
-  margin-top: 10;
   border-radius: 5;
+`
+
+export const StyledMessageWrapper = styled.View`
+  margin-left: 15;
+  margin-right: 15;
 `
 
 export const ButtonText = styled.Text`

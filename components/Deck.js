@@ -46,7 +46,7 @@ class Deck extends React.Component {
         <SpaceView>
           <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.navigation.state.params.deckName}</StyledHeader>
           <StyledSubHeader theme={{subheaderColor: additionalColors.headers}}>{ this.generateCardLengthText() }</StyledSubHeader>
-          <StyledButton onPress={this.handleAddCardPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.darkGreen }}>
+          <StyledButton onPress={this.handleAddCardPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.darkGreen, marginTop: 70 }}>
             <ButtonText>Add Card</ButtonText>
           </StyledButton>
           <StyledButton onPress={this.handleStartQuizPress} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
