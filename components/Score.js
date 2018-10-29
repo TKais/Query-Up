@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { StyledView, StyledButton, ButtonText, StyledHeader } from '../assets/styles/common';
+import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView } from '../assets/styles/common';
 import { colorPalette } from '../utils/styles';
 
 class Score extends React.Component {
@@ -15,13 +15,15 @@ class Score extends React.Component {
   render() {
     return (
       <StyledView>
-        <StyledHeader>Your score is {Math.floor((this.props.numberCorrect / this.props.numOfCards) * 100)}%</StyledHeader>
-        <StyledButton onPress={this.startQuiz} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
-          <ButtonText>Restart Quiz</ButtonText>
-        </StyledButton>
-        <StyledButton onPress={this.routeToDeck} activeOpacity={0.8} theme={{ buttonColor: colorPalette.coral }}>
-          <ButtonText>Back to Deck</ButtonText>
-        </StyledButton>
+        <SpaceView>
+          <StyledHeader>Your score is {Math.floor((this.props.numberCorrect / this.props.numOfCards) * 100)}%</StyledHeader>
+          <StyledButton onPress={this.startQuiz} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach, marginTop: 80 }}>
+            <ButtonText>Restart Quiz</ButtonText>
+          </StyledButton>
+          <StyledButton onPress={this.routeToDeck} activeOpacity={0.8} theme={{ buttonColor: colorPalette.coral }}>
+            <ButtonText>Back to Deck</ButtonText>
+          </StyledButton>
+        </SpaceView>
       </StyledView>
     );
   }
