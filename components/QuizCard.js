@@ -7,7 +7,8 @@ import { Ionicons } from '@expo/vector-icons';
 
 class QuizCard extends React.Component {
   state = {
-    answerIsVisible: false
+    answerIsVisible: false,
+    questionAnswered: false,
   }
 
   componentWillMount() {
@@ -25,6 +26,11 @@ class QuizCard extends React.Component {
       inputRange: [0, 180],
       outputRange: ['180deg', '360deg']
     });
+  }
+
+  handleAnswerPress = (isCorrect) => {
+    this.setState({ questionAnswered: true }, );
+    this.props.onHandleAnswer(true);
   }
 
   showQuestionAndAnswer = () => {
@@ -48,11 +54,11 @@ class QuizCard extends React.Component {
   renderButtonContainer = () => {
     return (
       <StyledScoreButtonWrapper>
-        <StyledScoreButtons onPress={this.props.onHandleAnswer.bind(this, true)} activeOpacity={0.8}>
+        <StyledScoreButtons onPress={this.handleAnswerPress} activeOpacity={0.8}>
           <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark'} size={Platform.OS === 'ios' ? 125 : 90} color={additionalColors.correctAnswer} />
           <StyledSubHeader>Correct</StyledSubHeader>
         </StyledScoreButtons>
-        <StyledScoreButtons onPress={this.props.onHandleAnswer.bind(this, false)} activeOpacity={0.8}>
+        <StyledScoreButtons onPress={this.handleAnswerPress} activeOpacity={0.8}>
           <Ionicons name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} size={Platform.OS === 'ios' ? 125 : 90} color={additionalColors.incorrectAnswer} />
           <StyledSubHeader>Incorrect</StyledSubHeader>
         </StyledScoreButtons>
