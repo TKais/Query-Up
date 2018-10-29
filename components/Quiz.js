@@ -51,7 +51,7 @@ class Quiz extends React.Component {
       );
     } else {
       return (
-        <Score numberCorrect={this.state.correct} navigation={this.props.navigation} onResetQuiz={this.resetQuiz} />
+        <Score numberCorrect={this.state.correct} numOfCards={cards.length} navigation={this.props.navigation} onResetQuiz={this.resetQuiz} />
       );
     }
   }

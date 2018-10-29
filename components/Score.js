@@ -15,7 +15,7 @@ class Score extends React.Component {
   render() {
     return (
       <StyledView>
-        <StyledHeader>Correct: {this.props.numberCorrect}</StyledHeader>
+        <StyledHeader>Your score is {Math.floor((this.props.numberCorrect / this.props.numOfCards) * 100)}%</StyledHeader>
         <StyledButton onPress={this.startQuiz} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
           <ButtonText>Restart Quiz</ButtonText>
         </StyledButton>
