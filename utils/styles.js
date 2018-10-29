@@ -9,7 +9,6 @@ export const colorPalette = {
 export const additionalColors = {
   headers: '#FDF6EE',
   correctAnswer: '#66A266',
-  answerIcons: '#FFFFFF',
   incorrectAnswer: '#FF0000',
 };
 

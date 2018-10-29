@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Animated, StyleSheet, Dimensions, Platform } from 'react-native';
-import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView } from '../assets/styles/common';
+import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView, StyledSubHeader } from '../assets/styles/common';
 import { StyledNumberText, StyledScoreButtons, StyledScoreButtonWrapper } from '../assets/styles/quiz-card-styles';
 import { colorPalette, additionalColors } from '../utils/styles';
 import { Ionicons } from '@expo/vector-icons';
@@ -49,12 +49,12 @@ class QuizCard extends React.Component {
     return (
       <StyledScoreButtonWrapper>
         <StyledScoreButtons onPress={this.props.onCorrectAnswer} activeOpacity={0.8}>
-          <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark'} size={90} color={additionalColors.correctAnswer} />
-          <Text>Correct</Text>
+          <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark'} size={Platform.OS === 'ios' ? 125 : 90} color={additionalColors.correctAnswer} />
+          <StyledSubHeader>Correct</StyledSubHeader>
         </StyledScoreButtons>
         <StyledScoreButtons onPress={this.props.onIncorrectAnswer} activeOpacity={0.8}>
-          <Ionicons name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} size={90} color={additionalColors.incorrectAnswer} />
-          <Text>Incorrect</Text>
+          <Ionicons name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} size={Platform.OS === 'ios' ? 125 : 90} color={additionalColors.incorrectAnswer} />
+          <StyledSubHeader>Incorrect</StyledSubHeader>
         </StyledScoreButtons>
       </StyledScoreButtonWrapper>
     );
@@ -62,11 +62,9 @@ class QuizCard extends React.Component {
 
   renderAnswerButton = () => {
     return (
-      <View>
-        <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>
-          <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
-        </StyledButton>
-      </View>
+      <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach, marginTop: 30 }}>
+        <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
+      </StyledButton>
     );
   }
 
