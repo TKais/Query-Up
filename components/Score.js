@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { StyledView, StyledButton, ButtonText, StyledHeader, SpaceView } from '../assets/styles/common';
 import { colorPalette } from '../utils/styles';
 

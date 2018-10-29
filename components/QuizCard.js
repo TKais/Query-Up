@@ -62,7 +62,7 @@ class QuizCard extends React.Component {
 
   renderAnswerButton = () => {
     return (
-      <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach, marginTop: 30 }}>
+      <StyledButton onPress={this.showQuestionAndAnswer} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach, marginTop: 50 }}>
         <ButtonText>{this.state.answerIsVisible ? 'Question' : 'Answer'}</ButtonText>
       </StyledButton>
     );
