@@ -30,6 +30,5 @@ This app uses the following technologies:
 
 ## Tested Platforms
 
-* iOS simulator
-* Android emulator
-* Pixel 2 device (running Android 9 - Pie)
+* iOS simulator (iPhone X)
+* Android emulator (Pixel 2)
