@@ -40,7 +40,7 @@ class AddCard extends React.Component {
     return addAsyncCard(deckName, card)
       .then(this.props.dispatch(createCard(deckName, card)))
       .then(this.setState({ cardQuestion: '', cardAnswer: '' }))
-      .then(this.props.navigation.navigate('Decks'));
+      .then(this.props.navigation.navigate('Deck', { deckName: deckName }));
   }
 
   render() {
