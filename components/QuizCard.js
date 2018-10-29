@@ -30,7 +30,7 @@ class QuizCard extends React.Component {
   }
 
   handleAnswerPress = (isCorrect) => {
-    this.setState({ questionAnswered: true }, this.props.onHandleAnswer(true));
+    this.setState({ questionAnswered: true }, this.props.onHandleAnswer(isCorrect));
   }
 
   handleAnimation = () => {
@@ -62,11 +62,11 @@ class QuizCard extends React.Component {
   renderButtonContainer = () => {
     return (
       <StyledScoreButtonWrapper>
-        <StyledScoreButtons onPress={this.handleAnswerPress} activeOpacity={0.8}>
+        <StyledScoreButtons onPress={this.handleAnswerPress.bind(this, true)} activeOpacity={0.8}>
           <Ionicons name={Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark'} size={Platform.OS === 'ios' ? 100 : 90} color={additionalColors.correctAnswer} />
           <StyledSubHeader>Correct</StyledSubHeader>
         </StyledScoreButtons>
-        <StyledScoreButtons onPress={this.handleAnswerPress} activeOpacity={0.8}>
+        <StyledScoreButtons onPress={this.handleAnswerPress.bind(this, false)} activeOpacity={0.8}>
           <Ionicons name={Platform.OS === 'ios' ? 'ios-close' : 'md-close'} size={Platform.OS === 'ios' ? 100 : 90} color={additionalColors.incorrectAnswer} />
           <StyledSubHeader>Incorrect</StyledSubHeader>
         </StyledScoreButtons>
@@ -135,9 +135,9 @@ class QuizCard extends React.Component {
               <StyledHeader theme={{headerColor: additionalColors.headers}}>{this.props.answer}</StyledHeader>
               { this.renderAnswerButton() }
             </Animated.View>
-            { this.renderButtonContainer() }
           </SpaceView>
         </Animatable.View>
+        { this.renderButtonContainer() }
       </StyledView>
     );
   }
