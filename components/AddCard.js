@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { createCard } from '../actions/decks';
 import { addAsyncCard } from '../utils/storage';
-import { colorPalette } from '../utils/styles';
+import { Ionicons } from '@expo/vector-icons';
+import { colorPalette, additionalColors } from '../utils/styles';
 import { StyledView, StyledButton, ButtonText, StyledInput, StyledHeader, SpaceView } from '../assets/styles/common';
 
 class AddCard extends React.Component {
@@ -11,6 +12,15 @@ class AddCard extends React.Component {
     cardQuestion: '',
     cardAnswer: '',
   }
+
+  static navigationOptions = ({ navigation }) => {
+    const deckName = navigation.state.params.deckName;
+
+    return {
+      title: deckName,
+      headerLeft: <Ionicons name={ Platform.OS === 'ios' ? 'ios-arrow-back' : 'md-arrow-back' } size={30} style={{ marginTop: -5, marginLeft: 10 }} onPress={() => navigation.navigate('Decks')} title="Decks" color="#FFFFFF" />,
+    }
+  };
 
   handleQuestionChange = (value) => {
     this.setState({
@@ -37,7 +47,7 @@ class AddCard extends React.Component {
     return (
       <StyledView>
         <SpaceView>
-          <StyledHeader theme={{headerColor: '#FDF6EE'}}>Add Card</StyledHeader>
+          <StyledHeader theme={{headerColor: additionalColors.headers, marginBottom: 25}}>Add Card</StyledHeader>
           <StyledInput underlineColorAndroid="transparent" placeholder="Question" value={this.state.cardQuestion} onChangeText={ this.handleQuestionChange } />
           <StyledInput underlineColorAndroid="transparent" placeholder="Answer" value={this.state.cardAnswer} onChangeText={ this.handleAnswerChange } />
           <StyledButton onPress={this.handleAddCard} activeOpacity={0.8} theme={{ buttonColor: colorPalette.peach }}>

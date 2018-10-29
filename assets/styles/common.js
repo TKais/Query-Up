@@ -18,6 +18,7 @@ export const StyledButton = styled.TouchableOpacity`
   border-color: ${props => props.theme.buttonColor};
   background-color: ${props => props.theme.buttonColor};
   margin-top: ${props => props.theme.marginTop || 10};
+  margin-bottom: ${props => props.theme.marginBottom || 0};
   border-width: 1;
   padding-top: 10;
   padding-bottom: 10;
